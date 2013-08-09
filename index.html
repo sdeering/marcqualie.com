@@ -4,17 +4,27 @@ title: Marc Qualie's Blog
 page_name: posts
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <div class="posts">
-    {% for post in paginator.posts %}
-      <h5>
-        <span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
-      </h5>
-      {{ post.excerpt }}
-      <br/><br/>
-    {% endfor %}
-  </div>
+{% for post in paginator.posts %}
+    <div class="post">
+        <h2 class="title"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+        <div class="snippet">
+            {{ post.excerpt }}
+        </div>
+        <div class="clearfix">
+            <div class="pull-left">
+                <span class="label">{{ post.date | date_to_string }}</span>
+            </div>
+            <div class="pull-right">
+{% for tag in post.tags %}
+{% if forloop.index < 4 %}
+                <a href="/tag/{{ tag }}" class="label label-{% if forloop.index == 1 %}success{% else %}info{% endif %}" title="{{ tag }} Posts">{{ tag }}</a>
+{% endif %}
+{% endfor %}
+                <a href="/2013/07/server-backups-with-s3cmd" class="label" title="3 more tags">...</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
 
 <!-- Pagination links -->
 <div class="pagination">
@@ -33,6 +43,4 @@ page_name: posts
   {% else %}
     <span class="next ">Next</span>
   {% endif %}
-</div>
-
 </div>

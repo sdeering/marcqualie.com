@@ -1,0 +1,15 @@
+.edit-project .add-on, .edit-blog .add-on {
+    width: 120px;
+    text-align: right;
+    padding-right: 18px;
+}
+.input-prepend label {
+    display: inline-block;
+    padding: 8px;
+    height: 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-left: none;
+    margin: 0;
+    vertical-align: top;
+}
