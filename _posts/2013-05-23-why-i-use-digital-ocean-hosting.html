@@ -1,0 +1,41 @@
+---
+layout: post
+title: "Why I use Digital Ocean Hosting"
+date: 2013-05-23 19:19:14
+tags: 
+ - Hosting
+ - Promotion
+ - Digital Ocean
+---
+
+<p>In the last few years I've used a lot of hosting providers. Until now I've never actually found any that have been able to satisfy my needs at the right price. Sure, there are huge companies such as AWS, Rackspace and Softlayer to name a few, but who has the budget to use these kinds of providers for research or personal projects outside of a big enterprise company. Previously I used Linode. I'm going to let you guys know why I switched and why <a href="https://www.digitalocean.com/?refcode=4f6e23440060" target="_blank">Digital Ocean</a> is my host of choice right now.</p>
+
+
+<h3>Overview</h3>
+
+<p>If you're reading this article then you've most likely come from a search engine because you've heard about this cool new hosting company and you're looking for reasons to use Digital Ocean over what you currently have. I'm hoping you've come to the right place. If you're not familiar with VPS hosting and using Linux via only the command line then Digital Ocean probably isn't the right hosting provider for you. However, if you're keen to learn and really don't mind breaking things a lot then there is a huge <a href="https://www.digitalocean.com/community" target="_blank" title="Digital Ocean Community">community</a> to help you get started if you run into trouble. Terminology is slightly different for what most VPS providers would call a "node" or "instance". These are referred to as "droplets", so when I mention them later you will know what I mean.</p>
+
+<h3>Price</h3>
+
+<p>Obviously, price is the first thing that draws people to Digital Ocean. Who can complain with a $5 VPS with SSD and instant deployment? I'll be honest I was sceptical even until fairly recently. If cheap is what you want then why not go to shared hosting to get unlimited resources? When I first joined Digital Ocean in January this was my initial impression. Thankfully, in this case, cheap does not mean low quality.</p>
+
+<h3>Network transfer</h3>
+
+<p>The main problem with most VPS providers is that they don't offer much in terms of bandwidth allowance. For most people this is great, but when you're running media sites or your own custom built CDN at low cost then bandwidth starts to become an issue. When I switched from Linode they had just launched their network upgrades which increased their monthly bandwidth allowance by 10 fold; increasing from 200MB to 2TB!. This was a pretty impressive upgrade and a hard deal to turn down. Digital Ocean offer 1TB per node, even on the cheapest plan. I was lucky enough to have an account before everyone was Grandfathered, so I get truly unlimited bandwidth on my account. Really, unlimited, I contacted them just to make sure.</p>
+
+<h3>Stability</h3>
+<p>I've been using these servers for around 5 months now and not had any issues. I'm currently running a 5 server MongoDB cluster, 2 web servers and a generic Minecraft/IRC server for messing about. The servers which get the most load are the MongoDB servers. They currently power a few of my applications, one of which is Hoard (with millions of tracked events over a lot of buckets) and another is a server monitoring tool I built which monitors around 60 services every minute for various metrics. Safe to say this intense work would cripple a lot of VPSs, especially single core machines with 512mb ram, but Digital Ocean just keeps on swimming.</p>
+
+<h3>Hardware</h3>
+
+<p>As I mentioned earlier, Digital Ocean are one of the only VPS hosts to offer SSD based storage (at very low prices aswel). Not only that but RAM is much cheaper in comparison to other hosts and can be upgraded/downgraded at any time during the lifecycle of your VPS. You get a lot of storage space for your money and the CPUs aren't over-crowded by overselling. All in all, these machines pack a pretty big punch for your money.</p>
+
+<h3>API</h3>
+<p>Almost every hosting provider I've used has had an API. Maybe not the most functional, responsive or even nicely written API but it exists. What I've found with Digital Ocean is that their API is awesome. It's simple. It's functional. Most importantly, you can do anything that would be able to do through the console, which is great for integrating into deployment and build tools. I've contributed to an open source wrapper for the API and I've also fully integrated it into a custom build system which deploys a new droplet (55 seconds or less), configures it and syncs a codebase. If there are problems with the machine, simply launch a new one. Within minutes I can have lots of new servers up and running without ever logging into their console.</p>
+
+<h3>Conclusion</h3>
+
+<p>After using Digital Ocean as my main hosting provider for 5 months I would definitely recommend them to any friends and developers who are looking for VPS hosting. They're cheap, reliable and the IRC channel is always filled with helpful staff and community members. Let me know if you have any questions or think I may have missed out some important information to help you decide.</p>
+
+
+<strong>Referral Link:</strong> <a href="https://www.digitalocean.com/?refcode=4f6e23440060" target="_blank">https://www.digitalocean.com/?refcode=4f6e23440060</a>

@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Criterion: A PHP CI Server"
+date: 2013-07-20 19:42:06
+tags: 
+ - Open Source
+ - PHP
+ - CI
+ - Romhut
+---
+
+<p>Today, the Romhut team just released an open source project that has been aggressively developed over the last few weeks. It started as a personal tool to test our many private repositories in a controlled environment but quickly evolved into a fully fledged, generic open source continuous integration server. Thanks to hours of discussion and endless commits (mainly from <a href="https://github.com/scottymeuk" target="_blank">@scottymeuk</a>), <a href="http://romhut.github.io/criterion" target="_blank">Criterion</a> was born.</p>
+
+<h3>Yet another CI server?</h3>
+<p>Yes, another one. There are many tools out there but none of them fit our needs perfectly for what we needed. We run small VMs on <a href="https://www.digitalocean.com/?refcode=4f6e23440060" target="_blank">Digital Ocean</a> so Jenkins (Java based) wasn't an ideal solution, and is also a bit bloated for our simple needs. I use Travis for open source projects, but the private hosted version is way too expensive and setting up the open source version is overkill. We also tried out PHPCI, but found it was written using it's own framework which hinders contributions while lacking a lot of features. One of the team members submitted patches but was ignored and the project seemed badly maintained.</p>
+
+<h3>Is it stable?</h3>
+<p>We've been running it in production since a week or so after the initial build. The unit tests have amazing code coverage (90%+) as we made sure this was our core focus throughout the build process. Since it's designed to test our production code and deploy it, having a buggy CI server would defeat that point entirely. Criterion focuses on on stability over features, but also brings a huge host of awesomeness to the table. It's also cool that we test Criterion, using Criterion. Recursive testing never felt so good.</h3>
+
+<h3>So, no cool features?</h3>
+<p>I did mention that we focus on stability but there's also a ton of features straight out of the box. One feature that is quite unique to us is implicit creation of repos from open source Github repositories. There's no need to actually create a project from the UI, you can simply add a hook on github.com and when the hook is deployed, the project is auto-created and tested instantly. We also have composer built right into the core so all your PHP dependencies are taken care of. Unlike travis, you also don't need to add anything to your php projects for them to be tested. We will detect your composer and phpunit settings automatically and run them without any extra setup from you.</p>
+
+<h3>Awesome! What's next?</h3>
+<p>There's quite a few things on the roadmap but we'd love feedback from our users to try and prioritise what comes next. I'd love to add support for multiple environments, various database vendors and even one-click PaaS integration are some things we've been thinking about. Make sure you star/watch the repository on <a href="https://github.com/romhut/criterion" target="_blank">Github</a> and we'll keep you up to date with everything that's going on. We're also around in the #romhut IRC channel on freenode if you have any questions.</p>

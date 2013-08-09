@@ -1,0 +1,39 @@
+---
+layout: post
+title: "Using Cloudflare Page Rules"
+date: 2013-04-01 18:46:04
+tags: 
+ - PHP
+ - Nginx
+ - Cloudflare
+ - Cache
+ - CDN
+---
+
+<p>Today, I decided to explore Cloudflare features in a bit more depth. I currently manage quite a few applications, both personal and business related on the platform. One feature which I'd never really looked into before was Page Rules. I'd read about them, but never actually applied them to any sites. Due to how much of an affect it actually had by applying a few rules, I feel like I should spread the word for anyone who isn't aware of what they are and how amazing they can be when used correctly.</p>
+
+<p>First off, I'd like to explain what pushed me to look into page rules more. I had a job come up where someone wanted me to improve their site performance. Their traffic was increasing and couldn't scale to keep on par with demand. The main reason for this was due to the fact they were running from a single server and serving large amounts of media from it aswel as the main website. I actually did a lot of backend system tuning before turning to Cloudflare, which I will write as a series of posts later in the year as it's quite an interesting case study.</p>
+
+<p>You may be asking, if I had already tuned the system then why would Cloudflare be needed at all? The answer is simple. It's not. I'm not going to be passing Cloudflare off a silver bullet that will solve all of your problems. If you are you going to rely entirely on a 3rd party for your site to be performant then you're doing something wrong. In this case, the page rules are simply going to offer enhancement and costs savings for very little work.</p>
+
+<h3>What are Page Rules?</h3>
+
+<p>You can think of them as basically rules that Cloudflare will follow when it matches a pattern you specify. There are so many rules such as caching, redirection, minification, optimizations, Always On™ and many more. The huge advtange here is they are outside of your application code and can be modified, changed and removed at any time. They can also be applied to a specific URL, or a bunch of paths that match a pattern. They're also not limited to web pages, you can apply rules to static files or any other resource your backend can serve.</p>
+
+<h3>What did I use them for?</h3>
+
+<p>In my particular use case, I had already setup Cloudflare to act as a CDN and serve static content from various edge servers so the load was reduced a due to the fact the server was serving less traffic. What I now needed to do was find a way to make the actual application load better and not always hit the servers if possible. After optimising the code to use more caching, and splitting it across multiple machines the load still wasn't going down without having a few powerful machines running the site. Luckily, this particular application doesn't use any authentication and all users get the same content, so caching the entire page as one html block is feasible. I then implemented nginx with memcached backstore to cache the returned data which works great and reduces the load by extreme amounts compared to PHP rendering. But, I wanted more control over the content, and to hopefully get the request off the server entirely. This is where page rules come in. I started applying rules to match the most heavily loaded pages to serve the cached html page out to clients.</p>
+
+<h3>Why do Page Rules work so well?</h3>
+
+<p>Cloudflare is essentially doing the same thing I was doing with Nginx, and runs on the same software under the hood, albeit a lot more customised and advanced. So why did I get such amazing performance out of Cloudflare compared to my custom system? Technically, in terms of server load, I didn't. Nginx is very fast and powerful and after implementing the html caching with memcached I could have happily stopped optimising there and everything would be fine. However, remember earlier when I mentioned that all of the static content was being served out of a CDN? The beauty of Cloudflare is they have a global CDN which can cache any content, including HTML! By implementing Page Rules I can basically serve out any page of the application directly from a global CDN without any code changes or the application even having to be aware that it's happening. Obvious speed improvements for users due to the fact they get the site from the closest server, and now these requests don't actually go through to the application servers, so in the end I was able to keep the original server and not need to scale horizontally, saving lots of money.</p>
+
+<h3>A few things to consider</h3>
+
+<p>You may be thinking this is the perfect solution, and rush out to go and start caching your sites and serving them out of Cloudflare right this second but there are a few downsides that you should consider first. Above, I mentioned that this application was auth-less; If it required user logins then unfortunately any pages which were unique to a user could not make use of Page Rules. Secondly, server side access logs are affected due to the fact the requests aren't going through to the servers anymore. A lot of site owners only use Google Analytics to track users, but more technical web masters use access logs and various other server side tracking tools to run data reports in the background. You can get around this by adding your own tracking client side, but that requires extra code and more work which you may not want to do. It also doesn't catch everything a server side tracker would catch, such as spiders and non-javascript browsers. Lastly, any changes you make to your site won't happen in real time. Since everything is cached via Cloudflare's edge network, you'll have to wait for their Cache to expire, or manually flush the cache every time you make code changes. I get around this by implementing Cloudflare's API into my deploy process to flush the cache that way.</p>
+
+<h3>Conclusion</h3>
+
+<p>If you're wanting a quick boost to auth-less pages on your website without any code changes or effort then Page Rules are perfect for you. There are so many other use cases for Page Rules which I didn't cover above, such as Ignoring certain static files, making certain pages redirect, disabling protection for pages or even simply disabling features for parts of your site such the admin panel. Feel free to comment if you have any questions,  I'm also looking forward to seeing what you are using Page Rules for yourself.</p>
+
+<p>On a side note, I can't actually share the particular website with you but I did enable the same features on one of my smaller personal sites, <a href="http://molehillgaming.com" title="Molehill Gaming" target="_blank">Molehill Gaming</a>, as a testing playground. Go check it out and see how fast it loads!</p>

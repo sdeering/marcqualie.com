@@ -1,0 +1,23 @@
+---
+layout: post
+title: "StatsD PHP Library"
+date: 2013-06-13 12:09:44
+tags: 
+ - Open Source
+ - Github
+ - PHP
+ - Statistics
+ - Library
+---
+
+<p>Today, I just created a <a href="https://github.com/etsy/statsd/" target="_blank">StatsD</a> PHP Library and released it on <a href="https://github.com/marcqualie/php-statsd" target="_blank">Github <span class="glyphicon glyphicon-link"></span></a>. Before you start with "but there are already loads..", I do realise this, but they didn't suite my needs. This is a short post to let you know why I opted to create my own, and what I hope to achieve from it.</p>
+
+<p>First of all, I was torn between two packages. The first one, <a href="https://github.com/domnikl/statsd-php" target="_blank">domnikl/statsd-php</a>, looked very feature-full, but felt way too complex to do such a simple task. For the ones of you that are familiar with StatsD, the concept is meant to be simple and efficient. I didn't quite like the idea of adding a huge library and bootstrap code to my projects just to send out metrics.</p>
+
+<p>The second library, <a href="https://github.com/till/php-statsd" target="_blank">till/php-statsd</a> is actually the one I am currently using, along with a few other friends and collegues. This is my library of choice due to it's simplicity in bootstrapping and efficiency. However, it didn't quite fit my needs on a bigger project and I'm not too fond of static only based programming. The main let-down of this library is the fact it can't support multiple servers within the same project (not without re-initialising before each call), so I simply can't use it for projects where I have multiple StatsD servers.</p>
+
+<p>After evaluating these two options (and many others) I decided that creating my own would be the best option. I was heavily inspired by Till's implementation and took a lot of the same structure, but implemented it in a more object oriented fashion. I am still toying with the idea of making it backwards compatible, but chances are it'll be easier to just replace the old library and calls across my projects as I come to them. I also went with an optional factory-based initialisation system to allow sharing multiple instances with dependency injection.</p>
+
+<p>I would love your feedback on what you think of this and if you chose to use it, how wel lit compares to other libraries you've used in the past.</p>
+
+<p><strong>Project Source:</strong> <a href="https://github.com/marcqualie/php-statsd" target="_blank">https://github.com/marcqualie/php-statsd</a></p>

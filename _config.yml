@@ -1,3 +1,6 @@
-name: Your New Jekyll Site
+name: "Marc Qualie's Blog"
 markdown: redcarpet
-pygments: true
+paginate: 5
+paginate_path: "posts/:num"
+exclude:
+ - import.php

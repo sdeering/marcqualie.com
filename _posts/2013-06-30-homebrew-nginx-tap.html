@@ -1,0 +1,22 @@
+---
+layout: post
+title: "Homebrew Nginx Tap"
+date: 2013-06-30 09:31:46
+tags: 
+ - Open Source
+ - Nginx
+ - Ruby
+ - Homebrew
+---
+
+<p>I've recently been working on an <a href="https://github.com/marcqualie/homebrew-nginx" target="_blank">Nginx Tap</a> for Mac OS X Homebrew and now I think it's time to share with the world. Originally I created a pull request on the original repo but due to the custom nature of the modules I needed it was reccomended that I create a tap and maintain my own repository (tap). The main goal behind the tap is to create a version of Nginx with as many modules as possible so people can create fully custom builds very easily.</p>
+
+<p>The main advantage of using this tap over the native one inside homebrew is the power of the extra modules. For some reason they don't want to accept custom modules very often so when you're developing custom builds of Nginx you can't really use homebrew. My tap fixes this by accepting pull requests for any module. I've modified the original formula quite a lot to make submitting extra modules extremely easy by just editing a list at the top of the file.</p>
+
+<p>Currently I've covered every non-default module and I'm now working on powering through the list of 3rd party modules that are popular and add real power to Nginx. Currently a couple of my favorites are <a href="https://github.com/chaoslawful/lua-nginx-module" target="_blank">Luajit</a> and <a href="http://wiki.nginx.org/HttpSecureLinkModule" target="_blank">Secure Link</a>.</p>
+
+<pre><code>brew tap marcqualie/nginx
+brew uninstall nginx
+brew install nginx --with-luajit --with-secure-link --with-spdy</code></pre>
+
+<p>You can try out the tap in seconds by running the code above. I'm currently looking for feedback on which modules you think I should add and how well the current ones are implemented. Pull requests for new modules and documentation is also greatly appreciated.</p>
