@@ -1,5 +1,7 @@
 name: "Marc Qualie's Blog"
 markdown: redcarpet
+excerpt_separator: "\n\n"
+pygments: true
 paginate: 5
 paginate_path: "posts/:num"
 exclude:
