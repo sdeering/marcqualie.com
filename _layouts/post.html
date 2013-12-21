@@ -1,9 +1,31 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }} - {{ post.tags }}</p>
 
-<div class="post">
-{{ content }}
+<div class="blog-post margin-bottom-20">
+  <h2 class="title"><a href="{{ page.url }}">{{ page.title }}</a></h2>
+
+  <div class="content">
+{% if page.thumb %}
+    <img src="{{ page.thumb }}" alt="" class="pull-left img-thumbnail" style="margin-right:15px"/>
+{% endif %}
+    {{ content }}
+  </div>
+
+  <div class="info">
+    <div class="tags">
+{% for tag in page.tags %}
+      <a href="/tag/{{ tag }}" class="label">{{ tag }}</a>
+{% endfor %}
+    </div>
+    <div class="date">
+      Posted {{ page.date | date_to_string }} by Marc Qualie
+    </div>
+  </div>
 </div>
+
+<!-- Disqus Comments -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_url = 'http://marcqualie.com{{ post.url }}';
+</script>
