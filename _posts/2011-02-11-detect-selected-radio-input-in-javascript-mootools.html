@@ -1,0 +1,12 @@
+---
+layout: post
+title: "Detect Selected Radio Input in Javascript [Mootools]"
+date: 2011-02-11 19:09:00
+tags: 
+---
+
+A collegue brought up an interesting subject today at work; how do you detect which radio button out of set has been selected in Javascript? This is the first time in a few years I've been stumped on a Javascript question, so I was quite annoyed! The last time I used a radio button must have been on a MySpace voting pole widget back in the day. So I had my challenge, and I was determined to find out.</p>
+<p><a name='more'></a>My first attempt was to access the button via it's name inside of a form, but this just seemed to &#8220;IE6&#8243; to me. Then I started thinking about IDs, but then each button would need an id, and that's just overkill. Surely there is a more simple way then a reference to the form and looping through each input with the name then checking for .selected==true; Luckily, thanks to <a href="http://mootools.net/" target="_blank">Mootools</a> there is!</p>
+<p>A month or two I upgraded the company website to use the latest stable version of Mootools 1.3, and I'm so glad I did! This version of the framework includes the Slick Parser, which has to be one of my most loved and life saving pieces of script, which I use on a daily basis. I started to think of radio selection as an event, or a state, rather than a variable. Many of you reading this will know that Slick supports <a href="http://www.w3.org/TR/css3-selectors/" target="_blank">CSS3 Selectors</a>, which includes pseudo events.</p>
+<div style="background: #f7f7f7; border: 1px solid #e5e5e5; font-family: Courier New; margin-left: 10px; padding: 6px;">$$(&#8216;#formid input[type=radio][name=test]:selected')[0]</div>
+<p>Thanks to pseudo, I was able to grab the selected radio button via the above code. That snippet will get the reference to the radio input with name &#8220;test&#8221; in the form with ID &#8220;formid&#8221;. There are many possibilities what you could use this for, but this is just an example. Hope this helps someone save some time.</p>

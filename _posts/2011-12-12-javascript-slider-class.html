@@ -1,0 +1,14 @@
+---
+layout: post
+title: "Javascript Slider Class"
+date: 2011-12-12 02:26:00
+tags: 
+---
+
+Recently I've been doing a lot of work for clients and friends which use quite a few new Javascript Widgets and tools that I've developed over the last few months. With each new project I've made slight tweaks to the libraries I use and I'd like to start sharing some of the code I've been developing in the next few posts.  </p>
+<p>To start off with, my slider class has been very popular so that's what I'm going to share first. This class is in use on about 20 domains, so it's rather stable. Below is the simple code to get a slider running straight away.<br /><br/><a name='more'></a>
+<code style="background: #f7f7f7; border-left: 2px solid #090; display: block; padding: 9px;">var MySlider = new SliderClass({<br /> slideDiv: 'featured',<br /> slideClass: 'f-pic',<br /> leftArrow: '.arrow-left',<br /> rightArrow: '.arrow-right',<br /> useKeyboard: true,<br /> autoSlide: true,<br /> loopBack: true<br />});<br /></code></pre>
+<p>That is Javascript, obviously you can change the values to customize it to your project. Now onto the HTML. </p>
+<code style="background: #f7f7f7; border-left: 2px solid #090; display: block; padding: 9px;"><div id="featured"><br /> <a class="f-pic" href="/"><img src="image.jpg" alt=""/></a><br /> <div class="arrow-left"></div><br /> <div class="arrow-right"></div><br /></div><br /></code></pre>
+<p>You can pretty much do what you like with the CSS, but what ever you specify as <em>SlideClass</em> must be position absolute, and <em>SlideDiv</em> must be position: relative. These elements must also be the same width and height, otherwise the Slider won't line up properly.  </p>
+<p>You can download the code from <a href="http://www.marcqualie.com/js/slider.js">http://www.marcqualie.com/js/slider.js</a> and find examples of it in use on <a href="http://www.molehillgaming.com/" target="_blank" title="Molehill Gaming">Molehill Gaming</a> and <a href="http://lewwis.com/" target="_blank">lewwis.com</a>. Feel free to use this on your site, but please leave some credit back to my site. Contact me if you have any questions about the code, or how to get it working on your site.</p>

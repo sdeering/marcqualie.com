@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Adding User to a Group on OSX Lion"
+date: 2012-02-05 15:54:00
+tags: 
+---
+
+It's quite annoying how non-simple OSX is to Linux, so nearly all of the commands I'm used to don't actually work anymore so I have a lot more to learn. One of the basics was the lack of <b>usermod</b> which I use quite a lot while setting up permissions for things like client FTP, shared folders in Samba and vhosts in Apache2. Seems there is no <i>simple</i> way to do this on Mac, and the command is somewhat long winded, but here it is for anyone looking for a solution that works.
+<div style="padding:5px 5px 5px 10px;border-left:2px solid #333;font-family:Monospace;margin:10px auto">$ dseditgroup -o edit -u adminusername -p -a username -t user group </div>
+<p> Not quite as easy to remember as usermod, but I'm sure after a few attempts it will sink in. <b>adminusername</b> is the name of your admin account and <b>username</b> is the name of the account you wish to ammend. <b>group</b> is the name of the group you wish for the user to go into.</p>

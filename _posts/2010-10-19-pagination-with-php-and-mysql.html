@@ -1,0 +1,15 @@
+---
+layout: post
+title: "Pagination with PHP and MySQL"
+date: 2010-10-19 12:24:00
+tags: 
+---
+
+This is a quick tutorial on how to code basic pagination using a combination of PHP and MySQL. Pagination is basically splitting a list of content between multiple pages for easier navigation and less scrolling on a website. To start with you are going to need a few variables.
+$page_number = intval($_GET['p']) ? $_GET['p'] : 1; // Current page you are viewing<br />$page_limit = 10; // Items per page<br />$page_offset = ($page_number - 1) * $page_limit; // Where to start MySQL reading<br /></pre>
+<p>Once you have the above variables you can then call the data from MySQL, like so:
+$result = mysql_query("SELECT * FROM table LIMIT {$page_offset},{$page_limit}");<br /></pre>
+<p>Now to create the actual links (1 &#8211; 10):
+for ($i = 1; $i < 10; $i++) {<br />  echo "<" . "a href="?p={$i}\">{$i}<" . "a/>";<br />  if ($i != 10) echo " | ";<br />}<br /></pre>
+<p>There you have it, extremely basic pagination.</p>
+<p><span style="color: #777777;">* Note: I had to split the links up in the echo statement, as Blogger was converting these into actualy links, which is not what I want.</span></p>

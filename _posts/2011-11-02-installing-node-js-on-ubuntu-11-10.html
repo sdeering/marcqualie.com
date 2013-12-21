@@ -1,0 +1,12 @@
+---
+layout: post
+title: "Installing Node.js on Ubuntu 11.10"
+date: 2011-11-02 23:55:00
+tags: 
+---
+
+This is a quick post demonstrating the quickest way to get <a href="http://nodej.org" target="_blank">node.js</a> running on Ubuntu 11.10. I've tested this on both Desktop and Server editions, aswel as 11.04. From my experience, this is the quickest way to guarantee your installation of Node to be a success and no errors will occur, and install all required packages before hand.<br /><br/><a name='more'></a>Simply put this code into a shell script, and make it executable so you can easily install/update your Node installation from one simple command. <code style="display:block;background:#f7f7f7;padding:9px;border-left:2px solid #ccc;margin:10px 0">
+<br />apt-get install -y make git git-core g++ curl libssl-dev apache2-utils python<br />git clone https://github.com/joyent/node.git && cd node<br />./configure && make && make install<br /></pre>
+<p></code>There you have it. A brand new Installation of Node. You can test that everything is working by checking out the examples in my <a href="http://blog.marcqualie.com/2011/11/introduction-to-nodejs-building-web.html">Introduction to Node.js</a> post. Contact me if you have any feedback, or have an problems getting set up! <br/><br/><b>Update:</b> I also added a ready made script that I will keep updated with the most current and best way to install Node. Simply run the command below to install. <code style="display:block;background:#f7f7f7;padding:9px;border-left:2px solid #ccc;margin:10px 0">
+<br />curl https://www.marcqualie.com/labs/node/install.sh | sh<br /></pre>
+<p></code></p>

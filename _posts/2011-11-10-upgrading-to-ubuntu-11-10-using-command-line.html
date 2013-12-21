@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Upgrading to Ubuntu 11.10 using Command Line"
+date: 2011-11-10 21:23:00
+tags: 
+---
+
+Here is a very simple script to update from Ubuntu 11.04 to 11.10. I have just launched a few new servers and this was the first thing I had to do on all of them, so I thought I'd share. <code style="display:block;background: #f7f7f7; border-left: 2px solid #ccc; margin: 10px auto; padding: 9px;">
+<br />apt-get update<br />apt-get autoclean<br />do-release-upgrade<br /></pre>
+<p></code>Some of the above code might not be needed on a fresh install, but I always like to make sure the packages are all up to date before upgrading to a new distribution. This will work on both Desktop and Server editions of Ubuntu 11. Also, remember to use <b>sudo</b> if you're not logged in as root.</p>

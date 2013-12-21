@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Installing Varnish Cache on CentOS"
+date: 2011-02-13 00:46:00
+tags: 
+---
+
+Today, I installed <a href="http://varnish-cache.org/">Varnish Cache</a> onto my Amazon EC2 server to test drive it's performance. I had recently discovered sites such as Facebook are using Varnish as a way of delivering the billions of photo requests they receive daily; which must mean this thing can really take the load of of standard http servers. Unfortunately I was unable to find a decent tutorial on how to do so, which led me to write my own.</p>
+<p><a name='more'></a>To start with, you should know that I'm currently working with the default Amazon AMI install, which is pretty much a basic CentOS install as far as I can tell. Things shouldn't be much different for other version of Linux, such as Ubuntu or FreeBSD. I should also note that Varnish is currently not compatible with Windows platforms, which is annoying for me as I use a Windows test server at home, and at work.</p>
+<p>Let's get started. First of all you're going to have to configure your Apache server to run from a different port. The examples below show port 8080, but you can choose any port you like.</p>
+Listen 8080<br /><virtualhost *:8080><br />  ServerName marcqualie.com<br /></virtualhost><br /></pre>

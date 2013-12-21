@@ -1,0 +1,16 @@
+---
+layout: post
+title: "Secure Proxy with Hamachi2 on Linux"
+date: 2011-02-24 04:26:00
+tags: 
+---
+
+<div style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-1fRyZ3kk9d4/TWXAu99XvCI/AAAAAAAAA2c/XBQBNn1uXKs/s1600/logmein_hamachi-437849-1293507014.jpg" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-1fRyZ3kk9d4/TWXAu99XvCI/AAAAAAAAA2c/XBQBNn1uXKs/s1600/logmein_hamachi-437849-1293507014.jpg" /></a></div>
+Recently I read an article on how to<a href="http://lifehacker.com/#!5763217/how-to-secure-and-encrypt-your-web-browsing-on-public-networks-with-hamachi-and-privoxy" target="_blank"> secure my public browsing</a> using LogMeIn Hamachi Client. I was using Hamachi for a while prior to this to to Sync my work network with my home network for easy file sharing. I also use LogMeIn free to access my PCs and I've been very happy with the service. I want to show you how you can have your very own provate tunnel back to your home or work network for secure browsing, no matter where you are. I won't go into detail on what this is, or how to set it up on windows (as the article is very in depth). I will be demonstrating how to get this same system running on a CentOS 5 machine.<br /><a name='more'></a></p>
+<p>I have this setup on both CentOS 5.4 and Amazon AMI 1.0, which is the default for basic AWS linux servers. If you don't know what any of the above means, or you think CentOS is a cheaper version of DollarOS then this tutorial isn't for you! Let's get started by installing Hamachi. Unfortunately you can't simply use <code>yum install hamachi2</code>, so we have to a manual install, which isn't too difficult. After a few hours of messing around with different server configurations I found the code below will work on all systems and is the quickest way to install and get your server running.</p>
+<p><code style="background: #000; color: white; display: block; font-family: Monospace; padding: 9px;">sudo yum install lsb<br />wget https://secure.logmein.com/labs/logmein-hamachi-2.0.1.13-x86.tgz<br />tar xfz logmein-hamachi-2.0.1.13-x86.tgz<br />cd logmein-hamachi-2.0.1.13-x86<br />sudo make install<br />sudo ./hamachi-init<br />sudo /etc/init.d/logmein-hamachi start<br />hamachi set-nick yourservername<br />hamachi join ***-***-*** proxickle</code></p>
+<p>You will want to replace ***-***-*** with your actual network ID which you created, and yourservername will be the name you see in your remote Hamachi Client.</p>
+<p>Next you will want to install privoxy on the server where you are running your proxy network.</p>
+<p><code style="background: #000; color: white; display: block; font-family: Monospace; padding: 9px;">sudo yum install privoxy<br />sudo nano /etc/privoxy/config<br />sudo /etc/init.d/privoxy start</code></p>
+<p>Luckily privoxy is in the Fedora repository so you can use yum and life is very very easy. You can modify the config files if you want, but the defaults work just fine, and don't need changing to get you up and running. Now all you do is follow the original article and connect to your new server using your Hamachi client.</p>
+<p>I hope this helped someone, you can always leaves comments or contact me privately for any information or questions you have.</p>

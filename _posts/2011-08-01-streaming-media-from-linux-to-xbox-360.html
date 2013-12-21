@@ -1,0 +1,36 @@
+---
+layout: post
+title: "Streaming Media from Linux to Xbox 360"
+date: 2011-08-01 13:20:00
+tags: 
+ - Linux
+ - Ubuntu
+ - Media
+ - Streaming
+---
+
+<p>Today I woke up with the vision of watching <a href="http://www.amazon.co.uk/gp/product/B004CYECF4/ref=as_li_ss_tl?ie=UTF8&tag=marqua-21&linkCode=as2&camp=1634&creative=19450&creativeASIN=B004CYECF4" target="_blank">Dexter</a> while working on my laptop because I'm sick of sitting at my desk. This left me with 4 options; Stream from Desktop, Stream from Laptop, Use USB Stick or Stream from new Linux Server. Each of these options has it downfalls, and one best solution, which I'm going to describe below.</p>
+
+<h4>Option 1: Stream from Desktop</h4>
+<p>The main reason I don't want to do this is because this computer consumes a lot of power due to the graphics card and high wattage power supply. Even though I've already setup streaming from here, I'd rather not use it and reerve it only for gaming.</p>
+
+<h4>Option 2: Stream from Laptop</h4>
+<p>Since I'd be working from my laptop, I don't want to drain the battery by streaming the content from here. Simple as that, no other reason other than battery life.</p>
+
+<h4>Option 3: Use a USB Stick</h4>
+<p>This is my usual method for watching my media on the TV, but it's very annoying. I have to manually copy the files to the USB Stick each time I want to watch something new, which is very inconvenient.</p>
+
+<h4>Option 4: Stream from Linux Server</h4>
+<p>This is my ultimate goal, since I recently just bought a new <a href="http://www.amazon.co.uk/gp/product/B004FPOLCO/ref=as_li_ss_tl?ie=UTF8&tag=marqua-21&linkCode=as2&camp=1634&creative=19450&creativeASIN=B004FPOLCO" target="_blank">HP Proliant Microserver</a> that I plan to always have turned on, which is now hosting all of my files and working as my internal web server and test environment. Unfortunetly Linux doesn't have native support for streaming to Xbox so I had to do some researching. Turns out there are a few options, none of them seeming to work from the comments I was reading, or there would be an odd occasion of success on certain operating systems. After an hour or so of searching I decided to use my instinct and go with <a href="http://ushare.geexbox.org/" target="_blank">ushare</a>; A free UPnP A/V & DLNA Media Server for Linux.</p>
+
+<p>To my surprise, ushare is actually part of the Ubuntu packages, so this makes things extremely easy. I am running Ubuntu Server 11.04. You can simply run the command:<br />
+<blockquote>sudo apt-get install ushare</p></blockquote>
+<p>I haven't tested this on Fedora based systems like CentOS, but I've read the RPM installer works just the same via the yum command. Ushare stores it's config file in <b>/etc/ushare.conf</b> so this is our next stop. Luckily, there are only a few slight modifications you have to make to this file which I've listed below.</p>
+
+<blockquote>USHARE_NAME=SERVER<br />USHARE_IFACE=eth0<br />USHARE_PORT=49200<br />USHARE_TELNET_PORT=1337<br />USHARE_DIR=/storage/media<br />USHARE_OVERRIDE_ICONV_ERR=<br />USHARE_ENABLE_WEB=yes<br />USHARE_ENABLE_TELNET=no<br />USHARE_ENABLE_XBOX=yes<br />USHARE_ENABLE_DLNA=no</blockquote>
+
+<p>That is the exact configuration file I used and it worked straight away. I simply saved the file, started the daemon and turned on my Xbox. All my media files were instantly there, no errors, no messing around with configurations. You can easily start and stop the daemon using:<p>
+
+<blockquote>/etc/init.d/ushare start</blockquote>
+
+<p>Hopefully this will work as easily for you as it did for me. Feel free to comment or ask questions if you have trouble or any suggestions.</p>

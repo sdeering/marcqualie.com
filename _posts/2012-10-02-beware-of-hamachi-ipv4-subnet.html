@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Beware of Hamachi IPv4 Subnet"
+date: 2012-10-02 22:20:58
+tags: 
+ - Hamachi
+ - IPv6
+ - Logmein
+ - Proxy
+ - VPN
+ - Linux
+ - Tips
+---
+
+Today I found a major flaw with a piece of software I use heavily every single day, as do a lot of people I know. Logmein Hamachi is currently using the 5.0.0.0/8 subnet, which has recently (Novermber 2011) been assigned to real users and conflicts are beginning to happen which is a major issue. Basically, the problem makes any service running in this subnet to appear invisible to Hamachi users, and webhosts are starting to assign these addresses to real users by the looks of it. I stumbled across this issue when connecting to a demo server at the company I now work for. Other people in the office could connect, yet I couldn't. The machine just appeared dead until I noticed the IP was in the 5.0.0.0/8 range!</p>
+<p>Of course the easy way to fix this is to enable IPv6 only mode from within Hamachi. Luckily for me, all of my servers and Macbooks support this so the transition was easy, however a lot of people who use Hamachi use it for legacy gaming for LAN matches, which certainly won't support IPv6 as many other services won't yet or ever will. The worrying thing right now is this is actually the <a href="http://community.logmein.com/t5/Hamachi/5-x-x-x-Address-Range/td-p/83996" target="_blank">official “fix”</a> from Logmein for the issue. From my research it turns out other services such as EasyVPN are also using this address range, and it was common ground for this subnet to be used for VPNs so I can imagine quite a few connectivity issues arising when more of these IPs are given to services. People are reporting problems with people connecting to their websites, which is never good.</p>
+<p>So next time a site is down for no apparent reason, try pinging it to see if the IP is in the above address range, if it is and you have Hamachi (or other VPN service) you might want to think about converting to IPv6 or disabling it all together. Hope this helps someone avoid hours of confusion, as there is no way to really “debug” this unless you are familiar with the fact all Hamachi IPs have the same subnet.</p>
+<p>Have any of you guys noticed problems with other VPN providers? Feel free to share your thoughts in the comments.</p>

@@ -1,0 +1,13 @@
+---
+layout: post
+title: "XML to JSON using Google Feed API"
+date: 2011-03-22 12:00:00
+tags: 
+---
+
+If you're like me and you work heavily in JSON, then you're probably wondering the best way to get XML feeds into JSON format? Over the years I've used tools like xml2json for PHP, but it's unstable and doesn't seem to really do what you want it to on complex feeds. I even wrote my own basic library a couple of years back but, again, when feeds became highly complex it folded under pressure. Welcome, <a href="http://goo.gl/AVwSS" target="_blank">Google Feed API</a>!</p>
+<p><a name='more'></a>Thanks to this simple but powerful API from Google, you can now simply send the URL to an XML feed, and receive that data back in nicely formatted JSON! The syntax is extremely simple and all you need is a Google Developer Key (<b>Update:</b> this is actually optional, but preferred by Google).</p>
+<p>I will use my blog as an example of using this API. If you load my blog feed now, you will notice I use Feed burner (another Google product, see a pattern emerging?). As far as I know, Feed burner doesn't support feeds, so that's why it's a perfect example of when to use this API.</p>
+<div style="background: #f7f7f7; color: #009900; padding: 10px;"><a href="http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&q=http://feeds.feedburner.com/marcqualie" style="color: #009900;" target="_blank">http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&q=http://feeds.feedburner.com/marcqualie</a></div>
+<p>The above url will load my blog and display only 10 results, returning the results in JSON format. You can also provide a callback and many other filters, but those you can decide on yourself! Full documentation can be found over at <a href="http://code.google.com/apis/feed/v1/jsondevguide.html" target="_blank">JSON Developer's Guide</a>.</p>
+<p>On a final note, one of the best uses I've found for this API is building web apps entirely client side. By using the callback system, you can load your feed using JSONP in Javascript, and use all of the feed data (maybe even caching it using local storage) without ever interacting with a server of your own.</p>

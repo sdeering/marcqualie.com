@@ -1,0 +1,15 @@
+---
+layout: post
+title: "Shutdown Ubuntu Server 11.04"
+date: 2011-07-31 14:48:00
+tags: 
+---
+
+This is just a quick post to hopefully help you out if you're having the same problem as me. I recently purchased a <a href="http://www.amazon.co.uk/gp/product/B004FPOLCO/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=marqua-21&linkCode=as2&camp=1634&creative=6738&creativeASIN=B004FPOLCO" target="_blank">HP Proliant Microserver</a> and decided to go with Ubuntu Server 11.04 instead of my usual CentOS distro. It took a while to get used to but I got everything up and running within a few hours and everything was working fine; until I wanted to shutdown!</p>
+<p><a name='more'></a>I do realise this is a server, and shouldn't be shut down rechnically, but since it's a home machine for my personal use, and has wake on lan functionality I don't see why I should keepit on while I'm sleeping, unless I'm processing lots of info, which will be a post in the future!</p>
+<p>Basically the problem I was having was when I used the shutdown command via ssh, the machine would shutdown, but not power off.. meaning I couldn't get back into SSH or do anything really, and had to hold down the power button.. which if isn't good for the machine and is impossible if I'm away from my desk.</p>
+<p>Luckily this was a very easy fix, even though it took hours of Google searching! I was using the following command<br />
+<blockquote style="font-family: Courier New;">sudo shutdown 0</p></blockquote>
+<p>when I should have been using<br />
+<blockquote style="font-family: Courier New;">sudo shutdown -h now</p></blockquote>
+<p>The only real different being that I didn't use the -h parameter. As far as I can tell, this tells the system to halt then power off where as the previous command only halts the system. What is the point in that? Anyways, I hope this helps someone. Let me know if you have any other tips or suggestions?</p>

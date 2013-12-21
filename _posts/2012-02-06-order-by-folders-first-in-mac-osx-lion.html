@@ -1,0 +1,27 @@
+---
+layout: post
+title: "Order By Folders First in Mac OSX Lion"
+date: 2012-02-06 16:38:00
+tags: 
+---
+
+A pet hate of mine on Mac is the inability to order directories with folders at the top. It makes perfectly logical sense to put things in Alphabetical order, but when you're a developer and working with lots of folders which you have to navigate through and huge directories it's just a pain. <br/><a name='more'></a><br/>Unfortunately, it's not as simple as checking a box. You're going to have to rewrite a tiny bit of one of the files. First of all you're going to want to convert the text file into XML so that you can edit it, then open it with Nano.
+<div style="padding:5px 5px 5px 10px;border-left:2px solid #333;font-family:Monospace;margin:10px auto">
+$ cd /System/Library/CoreServices/Finder.app/Contents/Resources/English.lproj<br />$ sudo plutil -convert xml1 InfoPlist.strings<br />$ sudo nano InfoPlist.strings<br /></pre>
+</div>
+<p> Once you have the file open, navigate to the section which has <b>Folder</b> in, about a 3rd of the way down which will look like this
+<div style="padding:5px 5px 5px 10px;border-left:2px solid #333;font-family:Monospace;margin:10px auto">
+<br /><key>Folder</key><br /><string>Folder</string><br /></pre>
+</div>
+<p> Simply put a space before Folder in the String field so it looks like this.
+<div style="padding:5px 5px 5px 10px;border-left:2px solid #333;font-family:Monospace;margin:10px auto">
+<br /><key>Folder</key><br /><string> Folder</string><br /></pre>
+</div>
+<p> Once you've done that, you need to convert the file back to binary format so your system won't break once it's restarted.
+<div style="padding:5px 5px 5px 10px;border-left:2px solid #333;font-family:Monospace;margin:10px auto">
+<br />sudo plutil -convert binary1 InfoPlist.strings<br /></pre>
+</div>
+<p> All done, simply restart finder and then order your folder by &#8220;kind&#8221; type.
+<div style="padding:5px 5px 5px 10px;border-left:2px solid #333;font-family:Monospace;margin:10px auto">
+<br />sudo killall Finder<br /></pre>
+</div>

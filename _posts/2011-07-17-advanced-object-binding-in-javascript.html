@@ -1,0 +1,21 @@
+---
+layout: post
+title: "Advanced Object Binding in Javascript"
+date: 2011-07-17 22:30:00
+tags: 
+---
+
+For way too long now I've taken advantage of the amazing bind method build into the Mootools core framework, so when I started using jQuery for a client, I was shocked at how basic the code was in comparison. I'm going to write a whole new article on that topic tomorrow, but for now my focus is object binding. I'm going to explain what it is, where to use it, and how to get it to work in jQuery without breaking anything!</p>
+<p><a name='more'></a>If you haven't already checked out the <a href="http://mootools.net/">Mootools</a> framework, please do. It's an amazing library that I've used for many years, and swear by when coding complex applications. As I said above, a main feature I make use of is the ability to bind objects to functions as I call them, which helps a lot when creating custom classes and objects that are linked together, or I'm not sure what it's name space will be.</p>
+<p>In Mootools, the syntax is as follows<br />
+<blockquote><span style="color: #999999; font-family: 'Courier New', Courier, monospace; font-size: x-small;">element.addEvent(&#8216;click', clickFunction.bind(thisObj));</span></p></blockquote>
+<p> The <span style="color: #999999;">thisObj</span> variable is a variable that you wish to be accessible through <span style="color: #999999;">function.this</span> from within the function. Here, I am assuming you have Javascript knowledge and know what the <span style="color: #999999;">this</span> variable is. I may write some tutorials on core Javascript later this month, but for now you're just going to have to learn Javascript the old fashioned way; Google!</p>
+<p>Unfortunately, this functionality isn't available in jQuery, but luckily it is baked right in the Javascript Prototype Core as long as you know what you're doing. Javascript is a very powerful language, that most developers don't even know it can do half of the things it is capable of. My favourite feature is it's <a href="http://en.wikipedia.org/wiki/JavaScript#Prototype-based">prototype-based</a> style of coding that is available, but rarely used by day-to-day developers. I'll let you do you're own reading for the full details,. but basically this allows you to inject custom code right into the core of the Javascript language and add extremely powerful functionality.</p>
+<p>Here is a basic example of prototyping.<br />
+<blockquote><span style="color: #999999; font-family: 'Courier New', Courier, monospace; font-size: x-small;">String.prototype.displayAlert = function() { alert(this); };</span><br /><span style="color: #999999; font-family: 'Courier New', Courier, monospace; font-size: x-small;">(&#8220;This will be displayed via alert&#8221;).displayAlert();</span><br /><span style="color: #999999; font-family: 'Courier New', Courier, monospace; font-size: x-small;">(&#8220;.. and this will be displayed too&#8221;).displayAlert();</span></p></blockquote>
+<p>What happens above, is you are injecting the displayAlert function onto the String object of the language, meaning any object with this type has access to the function you created. Pretty neat, huh?</p>
+<p>Back to my main topic, object binding. You can use prototype to bind methods to all functions too, so I will use the code below (which I took from Mootools Core and modified slightly) to modify the this variable, without needing Mootools!<br />
+<blockquote><span style="color: #999999; font-family: 'Courier New', Courier, monospace; font-size: x-small;">Function.prototype.bind=function(a,b){var c=this;return function(){if(!b&&!arguments.length)return c.call(a);return c.apply(a,b||arguments)}};</span></p></blockquote>
+<p>I've trimmed the code down for you to copy and paste straight into your projects, and it can be used exactly the same way as you use the Mootools bind function I displayed above. Obviously if you already code using the Moootols framework, you don't need this function. I made this for use in projects without a Framework, or a none prototype based Framework such as jQuery.</p>
+<p>I hope this helped someone by opening theirs eyes to a new way of coding or even by simply bringing a cool feature of Mootools into the jQuery Framework!<br />
+<blockquote></p></blockquote>

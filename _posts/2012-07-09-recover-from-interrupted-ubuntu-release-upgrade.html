@@ -1,0 +1,13 @@
+---
+layout: post
+title: "Recover from Interrupted Ubuntu Release Upgrade"
+date: 2012-07-09 15:14:02
+tags: 
+ - Server
+ - Ubuntu
+ - Upgrade
+---
+
+Today I finally got around to upgrading my home media server to Ubuntu 12.04. I'd been putting it off for a while, mainly because I was busy and didn't have time to run extra backups. Anyways, everything ran smoothly until I forgot it was running and closed my Macbook lid, which resulted in no connection and a broken SSH pipe. This is the first time it's happened to me so I quickly did some googling and found the best solution.</p>
+<p>Luckily the creators of Ubuntu planned ahead for this kind of thing and run a separate SSH Deamon (mine was port 1022) so I could connect to that using <code>ssh me@myserver.com -p 1022</code>. Now gthat you're connected, you will notice everything is locked down. The entire file system will be locked down incluing apptitude, and you can't even resume using <code>dpkg --configure -a</code> or <code>aptitude t -f dist-upgrade</code>.</p>
+<p>There is a screen instance running as the root user on th machine, which you can easily reconnect to using <code>screen -d -r</code>. Once you are connected to this, you can easily resume wherever you were disconnected from. If you aren't logged in as root, which is good practice when you need to <code>sudo su</code> to get to the root user, or <code>su root</code> then enter the root password if you don't have sudo permissions. Thankfully that's all I needed to do to resume my upgrade.</p>

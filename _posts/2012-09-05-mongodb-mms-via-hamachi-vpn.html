@@ -1,0 +1,18 @@
+---
+layout: post
+title: "MongoDB MMS via Hamachi VPN"
+date: 2012-09-05 19:55:08
+tags: 
+ - Hamachi
+ - VPN
+ - Linux
+ - Macbook
+ - MongoDB
+ - Networking
+ - Server
+ - Tips
+---
+
+Today, I stumbled across a great way to use 10gen's <a href="https://mms.10gen.com" title="MMS" target="_blank">MMS</a> system with my Macbook Pro today without any kind of router reconfigure, firewall rule changing or even opening up mongod to the outside world. I simply took advantage of my personal <a href="http://blog.marcqualie.com/2011/02/secure-proxy-with-hamachi2-on-linux.html" title="Secure Proxy with Hamachi2 on Linux" target="_blank">Hamachi</a> network with spans across all of my laptops, desktops and deployed servers. This is actually a paid Hamachi Pro account with 32 clients, but you can get a free one that allows up to 5 machines.</p>
+<p>Since I had the agent running on a server with Hamachi installed, I was simply able to go to the MMS control panel and add the internal network IP of my Macbook Pro. Even though it's an internal network, the MMS python agent makes requests from your agent machine, then connects with MMS separately, so the connection to my Macbook goes entirely through Hamachi and bypasses the outside world. This also has the advantage of being totally encrypted, and follows my machine wherever I go without having to update the IP inside MMS.</p>
+<p>The advantages of this are amazing, as it allows you to monitor and profile your local development environment without any extra tools and accompanied by mongostat it's a great way to find out what's actually happening on your machine. However, one downside of this is you have to re-enable the host in MMS if you've had your machine turned off for a while, as it becomes deactivated, but that's simple enough just to login and click the re-enable link. I'm always trying to find out useful new ways to make development easier, feel free to share any of your own!</p>

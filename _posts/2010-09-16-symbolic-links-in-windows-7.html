@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Symbolic Links in Windows 7"
+date: 2010-09-16 12:58:00
+tags: 
+---
+
+Today I decided to link up some servers so I could develop faster and they would be almost identical. Unfortunately, symbolic links aren't straight forward to create on windows, so I did a little research. Turns out you have two options. First of all you can do it via the command link, using the <em>mklink</em> command, or you can install a program called <a href="http://schinagl.priv.at/nt/hardlinkshellext/hardlinkshellext.html">Link Shell Extension</a>. Both options are quite simple and do the same thing, however Link Shell Extension offers more options such as hard link cloning and copying. I've only tested this on Windows 7, so let me know if you have problems with it using other platforms. For reference, you can use the command line way of doing this, by using the following code:</p>
+<div style="background: #f7f7f7; border-left: 2px solid #ccc; font-family: Courier New; font-size: 80%; padding: 5px 5px 5px 20px;">mklink /D C:\Users\Marc\Desktop\Stuff C:\Stuff</div>
+<p>The /D parameter tells mklink to perform a directory symlink. The first Path is where the link will be placed, and the second path is the target directory to wish to mirror. Now any files on my desktop, will be available in C:\Stuff, and look like that's where they belong, however is it just a mirror image of their real location.</p>

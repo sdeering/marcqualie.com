@@ -1,0 +1,18 @@
+---
+layout: post
+title: "How to Rename a Field in MongoDB"
+date: 2012-06-16 00:14:48
+tags: 
+ - MongoDB
+ - Tips
+ - Javascript
+ - Programming
+ - Tutorial
+---
+
+Since <a title="MongoDB" href="http://mongodb.org" target="_blank">MongoDB</a> is technically a schema-less database, there aren't fields or columns that you are used to in things such as MySQL, and certainly no decent applications for managing data easily. Luckily, MongoDB has a lovely command shell which can be queried using simple Javascript. The below command will rename a field, if you named it wrong in an initial stage of your app, like I've done a few times while learning.</p>
+<p><code class="prettyprint lang-javascript"><br />
+db.post.update({}, { $rename: {"old_name": "new_name"}}, false, true);<br />
+</code></p>
+<p>The first parameter is your standard query, which I've left blank to match all documents by default. Please note that the 3rd and fourth paramters are actually required, or this won't work as by default only one document will be matched and an upsert will be applied, which isn't what you want in this situation.</p>
+<p>You can find the full documentation and explanation of the update function and the $rename command over at <a title="Updating - MongoDB" href="http://www.mongodb.org/display/DOCS/Updating#Updating-%24rename" target="_blank">http://www.mongodb.org/display/DOCS/Updating#Updating-%24rename</a></p>

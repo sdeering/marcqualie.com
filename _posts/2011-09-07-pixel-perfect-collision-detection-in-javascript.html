@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Pixel Perfect Collision Detection in Javascript"
+date: 2011-09-07 21:12:00
+tags: 
+---
+
+I'm working on a simple game to refresh my canvas knowledge. I decided to built the game entirly in Javascript, which isn't easy to do due to the fact it isn't designed for that purpose. There are no nice little helpers like drawing, object rendering, and most importantly collision detection. I've decided it would probably be easier to use an engine, but since you all know I hate using libraries or engines unless really necessary, I've decided to go about doing all of the code entirely myself from scratch. After a bit of playing around, and some memories from maths lessons in school I figured out how to do collision detection in raw Javascript code, which I'm going to share with you</p>
+<p><a name='more'></a>First of all, I'd like to point out that since Javascript is nothing like Actionscript in the sense that there isn't a stage, I am using complete code logic to move my objects around, then rendering them separately by drawing them out onto the canvas using virtual coordinates as reference points. I'm going to write a lot more tutorials on game development with Javascript very soon, as a whole series; but for now, here is the collision code.</p>
+<blockquote><p>if ( <br />    obj1.x <= obj2.x + ((obj1.width + obj2.width) / 2) <br />&&  obj1.x >= obj2.x &#8211; ((obj1.width + obj2.width) / 2) <br />&&  obj1.y >= obj2.y &#8211; ((obj1.height + obj2.height) / 2) <br />&&  obj1.y >= obj2.y &#8211; ((obj1.height + obj2.height) / 2) <br />) { <br />    console.log(&#8216;Hit!'); <br />} </p></blockquote>
+<p>I'd like to point out that the above code only works on rectangular based objects, but if done right, it's pixel perfect. Feel free to suggest any improvements, or ask for any more help to do with Javascript Game Development</p>

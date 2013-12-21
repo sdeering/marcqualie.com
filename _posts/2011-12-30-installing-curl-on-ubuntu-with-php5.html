@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Installing CURL on Ubuntu with PHP5"
+date: 2011-12-30 18:16:00
+tags: 
+---
+
+This is a quick post explaning how to quickly install the CURL module on PHP5 in preperation for my next few posts. Below is the code to run from the command line. Please make all your packages are up to date and <a href="http://blog.marcqualie.com/2011/11/upgrading-to-ubuntu-1110-using-command.html" title="Upgrading to Ubutun 11.10 from Command Line" target="_blank">upgraded</a> to the latest version before continuing. This isn't essential, but I always reccomend doing this before installing new software. Now the actual code.  <br/><br/>
+<div style="padding:9px;border-left:1px solid #090;background:#f7f7f7"><code>sudo apt-get install php5 openssl php5-curl </code></div>
+<p><br/> I included openssl above, too. This is because you may want to do requests to https resources and this is required to do so. I realise this post is short and sweet, but please be assured it's only a pre-post for what is to come in the next few days.</p>

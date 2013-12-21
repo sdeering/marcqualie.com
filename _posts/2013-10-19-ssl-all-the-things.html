@@ -1,0 +1,43 @@
+---
+layout: post
+title: "SSL All The Things"
+date: 2013-10-19 21:18:56
+tags: 
+ - Nginx
+ - Servers
+ - Security
+---
+
+<p>Lately there has been a lot of buzz around security when using web services. Everyone seems to be very paranoid all of a sudden and encryption is the answer to everything internet based. I wouldn't say I'm too overly paranoid, but I took this opportunity to add some extra security to my personal website. This post will cover the things I learned along the way through my research and also explain how quick and easy it can be to add SSL Encryption to your website.</p>
+
+<h3>Why use SSL?</h3>
+
+<p>Some people may argue that you don't need SSL encryption on your personal website, but I beg to differ. My personal website has logins, client details and API access. All of these things contain important information which I don't want people to be able to <a href="https://en.wikipedia.org/wiki/Packet_analyzer" target="_blank">sniff</a>. I login to my site from various shared networks that I don't control, such as WiFi access points, which poses an obvious threat. The other not so obvious threat is your workplace. 9 times out of 10 your company will have network monitoring software which a human has access to. I don't like the idea of someone I work with (or anyone for that matter) seeing my passwords and personal data I store on my server transferred across the wire. All of the above issues can be very easily avoided by adding a SSL Certificate to your server.</p>
+
+<h3>Obtaining a Certificate</h3>
+
+<p>You can get certificates cheap or even <a href="https://www.startssl.com" target="_blank">free</a> in some cases. I use PossitiveSSL which are fairly cheap from my hosting provider, Namecheap. Each provider has their own instructions on how to setup and install them so I'm not going to go into detail here on how to actually generate your server keys and get your key from the provider. I know almost all providers will have very detailed instructions on how the process works. Once you have your certificate, make sure you keep it safe. SSL only protects from man-in-the-middle attacks if you keep your key file private. If an attacker was able to somehow get your key, they could impersonate your server (unless you buy a high end certificate which is very expensive) and your users would still see the green https icon in their browser.</p>
+
+<h3>HSTS</h3>
+
+<p>Some of you may have come across <a href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security" target="_blank">HTTP Strict Transport Security</a> which I currently use on this site. There are many arguments against this, and also many for. I'd like share my reasons for using it on marcqualie.com.</p>
+
+<h4>Consistency</h4>
+
+<p>My main reason is it keeps things consistent. Previously I had a lot of business logic within the site code which controls how links are generated and whether they should be SSL or not. There was also logic which checked if the page required SSL (such as logins and admin) and redirected to a secure version of the page if need be. With global SSL I can simply do a single check at the web server level and the application can just assume SSL is enabled.</p>
+
+<h4>HTTPS Only Cookies</h4>
+
+<p>For my logins I require https only cookies. This protects against packet sniffers accessing the cookies as they are transferred over the wire and attempting <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack" target="_blank">man-in-the-middle attacks</a> which have happened to <a href="http://codebutler.com/firesheep/" target="_blank">Facebook and Twitter</a> before. The problems this caused was that visiting the site from a non-https connection would cause the application to always assume the user to think they were logged out, which was annoying for certain pages which change their content based on whether a user has an authenticated session.</p>
+
+<h3>Less Redirection Overhead</h3>
+
+<p>Simply forcing HTTPS at the web server level isn't simply enough. Using the HSTS header means search engines know to always link to the secure version and once a user has been on the site their browser won't ever try to connect to the non encrypted version. This is a tiny amount of overhead, but causes a nicer user experience to a frequent user.</p>
+
+<h3>Caveats</h3>
+
+<p>Of course, there are downsides. The huge one is that all static assets much be served from a secure url, which means they can't be cached. For a media site this could be a big issue, and it also causes a lot of extra bandwidth to be used. Luckily for me, I don't have much media and I have unlimited bandwidth thanks to <a href="https://www.digitalocean.com/?refcode=4f6e23440060" target="_blank">Digital Ocean</a>'s grandfather account. Another downside is that your server will see increased CPU usage. If you have a high traffic site you may need to increase your server specifications or expand to more servers. It's worth noting that even in Nginx (which is known for it's non blocking nature) will block a worker process when handling SSL handshakes causing a backlog if you get hit by a lot of traffic in one go on a single server. I've never seen this cause issues myself, but it's something to watch out for if you have a lot of concurrent connections.</p>
+
+<h3>Conclusion</h3>
+
+<p>Always on SSL isn't for everyone. I may even find that it's not the right use case for me in a few months, but at least I will have tried it. I always encourage improved security, but make sure you're doing it for the right reasons and understand the downsides as well as the benefits. I'm happy to answer any questions about my experiences in the comments, but I'm also interested in hearing what you guys have to say about SSL and why you chose to use it, or not use it on your own applications.</p>

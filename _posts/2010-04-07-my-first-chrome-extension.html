@@ -1,0 +1,12 @@
+---
+layout: post
+title: "My First Chrome Extension"
+date: 2010-04-07 23:18:00
+tags: 
+---
+
+Today, I finally got around to taking a look at <a href="http://code.google.com/chrome/extensions/devguide.html">Google Chrome Extension API</a>. Interesting stuff to play with, and very simple tp get started with. Since I'm already fluent in both Javascript and CSS (with webkit specificpulling together an extension was quite easy and  only took a few hours.</p>
+<p>Admittedly thinking of what to make was the hardest part, so I went for the easy option and chose to make something for work. I started off thinking of what kind of tools I find useful, and what our users would benefit from? Which is where I came to the idea of notifying users of new games on our website, keeps them up to date, and gives them an easy option to come back to the site to play more games.</p>
+<p>The extension uses our sites basic JSON feeds to pull in the latest games. This is all done using a background page, which periodically downloads the static files and saves them to the browser's Storage API. If new games are found, then a notification is displayed in the client and a temp Array of new games is stored so they can be highlighted when the user clicks the pop-up control. New games are displayed with cool modern animations using only CSS3. I had to use -webkit prefixes, as most of these features are experimental such as Gradients and Transitions. The extension also uses Google's new Async Analytics API, however I'm still waiting to see if this is actually working, due to the fact it's only supported in certain versions of chrome.</p>
+<p>So there you have it, my first basic extension. If you have <a href="http://www.google.com/chrome/">Google Chrome</a> then you can try out this extension by visiting the <a href="https://chrome.google.com/extensions/detail/ckiggbdhoiengmkdakeablbdkeclhabd">Free Online Games Extension</a> from the gallery. Also I will be adding a packed extension with an auto update system when i figure out how to do that and have time, but one step at a time, yea? <img src='http://blog.marcqualie.com/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> </p>
+<p>Let me know what you think either in the comments or by contacting me? Spread the word and get people using Chrome so they can install my extension!</p>

@@ -1,0 +1,8 @@
+---
+layout: post
+title: "Canvas GPU Acceleration in Chrome Fails"
+date: 2010-11-06 23:52:00
+tags: 
+---
+
+As you may know I <a href="http://blog.marcqualie.com/2010/11/squiggle-canvas-returns.html">recently relaunched Squiggle Canvas</a>. Whilst re-coding the site I noticed the entire engine was very glitchy, and the Javascript hang time for drawing was between 500-1000ms. This was the time needed to Chrome to take some input, run a function, draw something to the canvas, update the UI, and get ready to redraw the next line. All of this happens when you move the mouse one pixel. Many of you may think this is a lot to do every time you move the mouse, but in fact, when programming is concerned, it's actually not much at all, so more than half a second to complete this task is out of order. I ran Speed Tracer and found out the exact cause of the problem. Turns out, any interaction with the canvas was causing huge latency, and the entire page to freeze. I assumed this was my own coding, as Squiggle Canvas was made in a hurry, but being this bad was out of the question. Then I suddenly realised I had enabled one of Chrome's new Experimental features, GPU Acceleration for Canvas. In a lot of cases, this improves performance significantly, and even outdoes IE9 in some areas on the IE9 Demo page. However on my project it made it entirely unusable. Once I disabled this feature, Squiggle Canvas ran as smooth as porn star's lower regions. Just a word of warning to anyone using Chrome's new experimental features on the Dev channel, they aren't completely stable, and break a lot of applications, including mine. More updates when they make changes this feature.</p>

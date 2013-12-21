@@ -1,0 +1,56 @@
+---
+layout: post
+title: "Awesome Tools I've Been Using"
+date: 2012-11-23 22:24:47
+tags: 
+ - Linux
+ - Tips
+ - Programming
+ - Git
+ - Tools
+ - Software
+ - PHP
+---
+
+<p>I recently just passed my probation period and got hired full time at Performance Horizon which means I get to work on awesome technology with a great team for the foreseeable future! Over the last 3 months I've met really interesting people, attended conferences and meetups, worked on complex edge cases and compiled quite an inventory of tools I use in my daily work. This post is pretty much a summary of those tools and my opinion on why I think you should give them a try. I've included all the links to the mentioned projects at the bottom of this post.</p>
+
+<h4>Sublime Text 2</h4>
+<p>Simply the best IDE I've ever used, hands down. In fact I love it so much I purchased a license even when it's free. There are hundreds of plugins via the package manager and I use quite a lot of them, but one that stands out the most right now is Origami. It allows you to split your workspace into smaller chunks and move them (including idividual files within) around the screen in any manner; All with really simple to follow keyboard shortcuts. Since I do this inside Terminal for managing multiple connections in the same window, it was a natural extension to Sublime's already great interface. Any developers not currently using Sublime should really check it out!</p>
+
+<h4>Fabric</h4>
+<p>I've recently started becoming more and more interested in Python, and Fabric has a huge part to play in that decision. Previously I've been managing my servers through a custom built bash deployment script which can run hooks and upload the current git commit. This is great, but not very flexible when I want to add new features or do more advanced actions. Fabric is perfect for this as it allows me to assign roles (I manage <em>a lot</em> of servers) to run actions on multiple servers at once. Not only can I deploy my code and run actions on a per project basis now, I can also restart services, install software and even run backup scripts and build an entirely new system from one file. I much prefer this to some of the more fully featured and in my opinion bloated options such as Puppet and Chef, personal preference only, I like simplicity.</p>
+
+<h4>Bitbucket / Github</h4>
+<p>Not really development tools but I feel like I should mention them as they're part of my daily routine. If you are a developer and aren't using one of the above (or self hosted version control like Gitlab) then you are missing out on a lot of the great features they offer such as Wikis, Issues, Pull requests and easy collaboration. There are also other options such as Codebase and Gitorious that I haven't personally used, but my point is that hosted version control is awesome! Our team recently passed 10,000 commits and it's great to be able to role back to any point in time over the entire development period.</p>
+
+<h4>Silex Framework</h4>
+<p>Until 3 months I was completely against using open source frameworks because over the years I had developed my own which was a lot more optimised and does exactly what I want. Also, being head of development I wanted my team to know the code inside out and learn how to build the insides of a framework as aposed to building on top to build better programming skills. However, as I'm moving away from actual development and more into architecure and ops, I have less time to maintain such frameworks so I've tried a lot of open source options. My current company uses Kohana, and it's awesome! It's not my personal choice though, as the documentation sucks it doesn't feel as simple to use as it could be. After my visit to PHPNW12 (PHP Conference in Manchester) I was enlightened to Silex, and Symfony components. This website and blog is actually running off both of those and only took 2 days to rebuild the entire backend including my API and admin interfaces. Building on Silex is so easy, well documented and very extendible with one of my favourite features being the Twig templating framework.</p>
+
+<h4>Composer</h4>
+<p>Following on from Silex, Composer is essentially a long overdue package manager for PHP. Ever since I discovered it I've found any excuse to incorporate it into my projects. I've even built a few vendor modules to reuse in my various projects, one of them I intend to fully open source as part of a bigger library. The community around composer is thriving right now and people are building great libraries, including the entire symfony component library is on there which is why installing and running Silex is so simple. Any PHP developers who aren't already using composer really should be, and I would recommend at least installing the Silex framework to try it out as it's a great way to version control your libraries and share them in seconds to everyone else who is using them. I will probably write a post in the future going into more detail about managing your libraries and dependencies with Composer, let me know in the comments if this would interest you.</p> 
+
+<h4>Supervisord</h4>
+<p>A bit of a confession here, I only found out about this in the last few days but it's helped so much already and after seeing it in action I feel I have to share it! Supervisord is a python (I know, more python) tool that manages your services and can spawn instances and keep them running. I'm currently using it to manage services on my Macbook Pro as my current development environment involes multiple instances of MongoDB, Couchbase, Memcache, Redis, Gearman Consumers, Producers, MySQL, Nginx, PHP FPM (.. and many more) so having one config file to manage the starting stopping and status of each of these with inbuilt logging is great. It also comes with a simple nice looking web interface to make managing the services even easier.</p>
+
+<h4>Vagrant</h4>
+<p>Since in my daily routine I'm often switching between projects and environments I was recommended an app called Vagrant. This amazing tool allows me to have an entirely isolated virtual machine (running on a Headless Virtual Box) that I can spin up when I need it without any kind of code modifications or workspace changes. I've heard so many developers also using it in their daily routine due to the fact you can share entire environments between team members and system configs can be passed around easily. My favorite feature is how you can spin up an exact copy of your live OS image and test your code against it full before deployment or having extra hosted machines to testing code, much cheaper.</p>
+
+<h4>Source Links</h4>
+<p>I've combined all of the links below so you can check out each of the projects easily, let me know if I missed any.</p>
+
+<ul>
+  <li>Sublime Text 2 - <a href="http://www.sublimetext.com/2" target="_blank">sublimetext.com</a></li>
+  <li>Origami - <a href="https://github.com/SublimeText/Origami" target="_blank">github.com/SublimeText/Origami</a></li>
+  <li>Bitbucket - <a href="https://bitbucket.org/" target="_blank">bitbucket.org</a></li>
+  <li>Github - <a href="https://github.com/" target="_blank">github.com</a></li>
+  <li>Fabric - <a href="http://fabfile.org" target="_blank">fabfile.org</a></li>
+  <li>Silex - <a href="http://silex.sensiolabs.org/" target="_blank">silex.sensiolabs.org</a></li>
+  <li>Composer - <a href="http://getcomposer.org/" target="_blank">getcomposer.org</a></li>
+  <li>Supervisord - <a href="http://supervisord.org/" target="_blank">supervisord.org/</a></li>
+  <li>Python - <a href="http://python.org/" target="_blank">python.org</a></li>
+  <li>Vagrant - <a href="http://vagrantup.com/" target="_blank">vagrantup.com</a></li>
+  <li>Linode (Web/Database Hosting)- <a href="http://www.linode.com/?r=dfdb6f0a4cbe69831090eb51f6186e6aa2e060cb" target="_blank" rel="nofollow">linode.com</a></li>
+  <li>VPS.net (Hoard/Message Queue Hosting) - <a href="http://manage.aff.biz/z/11599/CD18136/" target="_blank" rel="nofollow">vps.net</a></li>
+</ul>
+
+<p>I'm always on the lookout for new tools and cool projects so feel free to let me know about any you guys are using in the comments, or share them through <a href="https://twitter.com/marcqualie" target="_blank">twitter @marcqualie</a> as that's where I find most of these anyways!</p>

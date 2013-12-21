@@ -1,0 +1,30 @@
+---
+layout: post
+title: "Deploying Websites with Git"
+date: 2012-02-01 13:23:00
+tags: 
+ - Tips
+ - Git
+ - Deployment
+ - FTP
+---
+
+Are you still using FTP for website deployment? Don't. If you're like me, and think there isn't a better solution then look no further than Git deployment. This topic has interested me for a very long time, but I'd never found a way to do it efficiently with the least amount of overhead and set up complexity. Before now I was currently using a mixture of FTP and Rsync to manage uploads, but both of these had major drawbacks. <br/><a name='more'></a><br/><br />
+<h3>FTP</h3>
+<p>Where do I start with FTP? It's an outdated protocol which isn't very good for syncing changes, and unless you have some kind of automatic syncing software, it's a tedious manual job. Until Recently I was using this for nearly all of projects, and I'm quite embarrassed about it to be honest. As a developer who is always trying out new technology across the board and always up to date, there is just no excuse for still using FTP. The advantage FTP has is the transfer speed, but when you factor in how insecure, heavy and failure-prone it is, it is still the worst choice.  <br/><br/><br />
+<h3>Rsync</h3>
+<p>Rsync is a beautiful way to sync updates to projects and websites. It's fast, only updates files which have changed and if you write a script it can be entirely automated. The main reason I use Rsync is for replicating changes through multiple servers and data centres. The script detects the files changes which need to be pushed, and updates them accordingly on a schedule, or when it detects the files have been changed in a similar way to how Dropbox works. The reason I don't use it for everything is I can't find a decent Windows solution and I still use Win7 quite a lot for development both at work and home.  <br/><br/><br />
+<h3>Git</h3>
+<p>Now we're on to the powerful stuff you all came to see. What are the main advantages of Git Deployment then? First of all, for many of you guys, git will be your main source of version control and where you host your projects if you're working in a team. One of the largest examples of this would be <a href="https://github.com/" target="_blank" title="Github">Github</a>, which I'm sure you've all heard of. Personally, I use my own custom built Git system on a VPS, mainly for customization, security and cost reduction due to the large amount of projects I manage. I will write a post on that later on, explaining how to host your own git repositories without any additional cost.  <br/><br/>To start with, I am going to assume you have sufficient basic experience with the Linux command line. All of these commands are done through a remote server, and depend upon you have <a href="http://blog.marcqualie.com/2011/07/improving-ssh-security-on-linux.html" title="Improving SSH Security on Linux">public keys</a> set up. Go ahead and login to your server and create a folder where you will keep your repositories (e.g <b>/var/www/git</b>) and then create another folder specific to your first project (e.g <b>/var/www/git/project1</b>). Navigate into this directory and type the following commands, where <b>$worktree</b> is an absolute path to the folder where you keep your actual site files (e.g /var/www/html). The worktree part is important, or it won't deploy to the correct directory. Also, If you're curious why I'm doing it in a separate folder and modifying the worktree rather than the same directory as the site, is so that the .git folder is completely separate for backup purposes, and there are less files in the document root. It's especially useful when deploying on multiple servers. I deploy via git to a master server per cluster, then internally Rsync takes over and only syncs the files it needs to the internal cluster, thus saving overhead on deploying to 30 different machines.
+<div style="padding-left:16px;border-left:2px solid #090;margin:10px 0">
+<br />$ git init<br />$ git config receive.denycurrentbranch ignore<br />$ git config core.worktree <b>$worktree</b><br />$ sudo nano .git/hooks/post-receive<br />#!/bin/sh<br />env -i git checkout -f<br />echo "Deployed!"<br />$ sudo chmod +x .git/hooks/post-receive<br /></pre>
+</div>
+<p> Then on your local machine you will want to add another remote to your git repo.
+<div style="padding-left:16px;border-left:2px solid #090;margin:10px 0">
+<br />$ git remote add live ssh://yourserver/var/www/git/project1<br /></pre>
+</div>
+<p> As I mentioned before, you will have to have already setup public keys for access to your server via SSH or else this method won't work. I've read through a lot of articles on deploying through git, and tried them all and this method was the best Hybrid I found. It doesn't require a bare repository, you can push/pull from it like a normal repo and it doesn't destroy and static files you may have in your document root on your server such as file uploads from users.  <br/><br/>When you're ready, simply commit then push to it like a normal remote. I create a .bat or .sh file with the following content, for automatic deployment without having to do this every time.
+<div style="padding-left:16px;border-left:2px solid #090;margin:10px 0">
+<br />$ git add .<br />$ git commit -am "Automatic Deployment"<br />$ git push live master<br /></pre>
+</div>
+<p> Another great use for this kind of deployment I've found it the ability to have seperate remotes pointing to different machines for testing purposes. If I'm not 100% sure that something will work live, I can send it to a sandbox machine first via a different remote, then once it works there, simply repeat the process with the live remote and within seconds the site is live.  <br/><br/>If you have any questions or suggestions I'm happy to chat with anyone interested in this kind of deployment or similar.</p>

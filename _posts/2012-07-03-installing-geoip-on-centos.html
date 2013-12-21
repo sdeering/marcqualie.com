@@ -1,0 +1,28 @@
+---
+layout: post
+title: "Installing GeoIP on CentOS"
+date: 2012-07-03 11:14:10
+tags: 
+ - Server
+ - CentOS
+ - GeoIP
+ - Install
+ - Snippet
+---
+
+<p>I mainly write these blog posts for my own personal reference, so I don't forget how to install all of these various packages, but also because I learn a lot of my stuff from other people's posts and like to contribute back where I can. Below is my install script for GeoIP on CentOS 5.6+, and so far it has never failed. It should work on any Redhat based system with the yum package manager, but I haven't tested on any system below 5.6. I normally create scripts in a personal install directory and run as sh ~/install/geoip.sh.</p>
+
+<pre><code class="lang-bash">mkdir /usr/share/GeoIP && cd /usr/share/GeoIP
+wget "http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz"
+wget "http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz"
+gunzip GeoIP.dat.gz
+gunzip GeoLiteCity.dat.gz
+yum update
+yum install php53u-devel php53u-pear geoip geoip-devel
+pecl channel-update pecl.php.net
+pecl install geoip
+echo "extension=geoip.so" > /etc/php.d/geoip.ini
+service httpd restart
+</code></pre>
+
+<p>The parts what a lot of people miss out are the devel packages which are needed to compile the php extensions. This works right out of the box, which means you don't need the GeoIP.dat files in your webroot, or the GeoIP.inc file. The function names are slightly different, but work in the same manner and a lot faster.</p>

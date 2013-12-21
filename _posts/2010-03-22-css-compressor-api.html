@@ -1,0 +1,13 @@
+---
+layout: post
+title: "CSS Compressor API"
+date: 2010-03-22 00:37:00
+tags: 
+---
+
+It only took a few months but I finally got it released. It's been sitting there in a little folder on my desktop for god know how long, when all it needed was a free day in my schedule to get it online! If you're a developer give it a try. You can view the full documentation at <a href="http://www.marcqualie.com/projects/css-compressor/">http://www.marcqualie.com/projects/css-compressor/</a>. I will update it as often as I can, all feedback is appreciated.</p>
+<p>The reason I'm proud of this script so much is due to the fact is has a higher compression ratio than Yahoo's YUI Compressor. Compare them if you don't believe me, and I'm still working on reducing it even further! I started working on this project when I realised every byte of data loaded into the browser counts. So rather than write neater code, I just compile it using this script so the code is perfect for browser rendering and the users of my sites. Trust me, it works.</p>
+<p>Here is a quick example for those of you who are PHP Developers. I used this as my demo cause PHP is my primary language, so it was easy to write and instant script. If anyone wants to submit a Java or Python version feel free and I will add it to the examples. Feel free to modify the code as you need.</p>
+<div style="background: #ffffcc; border: 1px solid #999; line-height: 14px; margin-left: 20px; padding: 9px;">$key = &#8220;your_key_here&#8221;;<br />$css = &#8220;/* Put your css data in this string */ body { background: #FFFFFF; }&#8221;;<br />$url = &#8220;http://www.marcqualie.com/api/css?key=$key&level=3&format=raw&#8221;;<br />$ch = curl_init($url);<br />curl_setopt($ch, CURLOPT_HEADER, false);<br />curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);<br />curl_setopt($ch, CURLOPT_POST, true);<br />curl_setopt($ch, CURLOPT_POSTFIELDS, array(&#8220;data&#8221; => $css));<br />curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']); // You may want to change this<br />$output = curl_exec($ch); curl_close($ch);</div>
+<p>I realised this post is a lot shorted than usual but it's 1:30am and I'm extremely tired! Maybe i will update sometime? Anyways just give it a try and let me know what you think.</p>
+<p><b>Update &#8211; 14th May</b> The CSS Compressor API is now part of a much bigger API suite I've been developing, and will be releasing soon. The new example wrapper has been posted above, and documentation can be found at <a href="http://www.marcqualie.com/projects/css-compressor/docs.php" target="_blank">http://www.marcqualie.com/projects/css-compressor/docs.php</a></p>

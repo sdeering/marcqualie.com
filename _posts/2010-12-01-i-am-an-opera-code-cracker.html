@@ -1,0 +1,11 @@
+---
+layout: post
+title: "I am an Opera Code Cracker!"
+date: 2010-12-01 14:37:00
+tags: 
+---
+
+Earlier today, Opera passed the 150 million user mark. Many of you won't know what Opera is, unless you've used it on your mobile at some point, due the fact it's nowhere near as popular as the other major browsers such as Chrome, Firefox and Internet Explorer. In celebration of this achievment, <a href="http://www.opera.com/">their homepage</a> was changed to display Jon S. von Tetzchner's (Opera Co-Founder) Inbox, with some quite interesting messages in there. If you look in drafts you will see a jumbled up message which is writen in 0s and 1s. This is binary. My curiosity took the better of me, and I decided to start decoding the message. After about 10 minutes I managed to dechiper the message, which read:</p>
+<p><span style="color: #666666; font-family: 'Courier New', Courier, monospace; font-size: small;">Congratulations! You cracked the code. In Opera we believe strongly in curiosity. We believe that is a big part of what have brought us to where we are today. To show you that we appreciate your curiosity, we want to award one of the people who have cracked this code. If you tweet &#8220;O****C***C******&#8221;, you might get lucky. We will pick one of the people who cracks the code and fly him/her to Norway and show what Opera and Norway is all about.</span></p>
+<p>I commented out most of the actual tweet, but if you have more than one brain cell i'm sure you can figure it out! Below is the simple, yet powerful piece of code I used to generate the message:</p>
+$input = '01010101 01000111 01001010 01101000 01100100 ...';<br />foreach (explode(" ", $input) as $byte) { $str .= chr(bindec($byte)); }<br />echo str_rot13(base64_decode($str));<br /></pre>

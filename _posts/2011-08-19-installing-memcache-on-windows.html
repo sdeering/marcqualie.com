@@ -1,0 +1,19 @@
+---
+layout: post
+title: "Installing Memcache on Windows"
+date: 2011-08-19 19:15:00
+tags: 
+---
+
+This week a colleague needed to work from home to finish up some code for our new internal site launch next week. Unfortunately, since we develop on Linux at work, and he uses windows at home, this wasn't such a smooth process of getting the files to render correctly on the Windows platform. He was using <a href="http://www.apachefriends.org/en/xampp.html" target="_blank">Xampp</a> which doesn't come pre configured with quite a few components we use to keep our site running fast and stable. One of these programs was Memcache; a distributed memory object caching system. Below I will show you the steps I took to get Memcache working on windows with the latest version of Xampp (1.7.4 at the time of writing).</p>
+<p><a name='more'></a>First of all, you're going to need to download the files which I am hosting below. The zip file contains the Memcache service, a module for PHP 5.3 and some .bat files I created to run it as a service.<br />
+<blockquote><a href="http://dl.dropbox.com/u/3471240/memcache.zip" target="_blank">http://dl.dropbox.com/u/3471240/memcache.zip</a></p></blockquote>
+<p>Once you have the files, unzip them, you are going to be moving them around your system. First of all, you can put your memcache.exe and .bat files anywhere, but I normally put mine in <b>C:\Program Files\Memcache</b> just because that's where windows normally stores things. Once you've copied those files over, run install.bat and this will install Memcache as a service that starts with your computer. Only use this option if you plan to develop a lot on this machine, other wise there is no need to have it run on startup. Another option is to create a desktop shortcut to the .exe file and just click it when you need to run memcache related programs.</p>
+<p>Up until now memcache will work, if you already have your language of choice compiled with a memcache module or plugin you will be able to connect to it on port 11211 like normal. If you don't have this, I'll show you how to get php on xampp working. You will need to <a href="http://www.apachefriends.org/en/xampp-windows.html#641" target="_blank">download Xampp</a> if you haven't already. This has only been tested with version 1.7.4, let me know if it works with any other versions you have.</p>
+<p>Next we will be install the php module, this is where things might get a little tricky if you're never done this before. Navigate to your Xampp directory, mine is located at <b>C:\Xampp</b>. Inside there will be a php folder, open up a file inside there called <b>php.ini</b>. Find a part in the file where there are loads of lines starting with extension= and add this line at the bottom:<br />
+<blockquote>extension=php_memcache.dll</p></blockquote>
+<p>Once you've done that there will be a folder called ext inside your php folder. Copy and paste the .dll file included in my download into here. Once you've done that you're ready to restart Apache. This can be done via the Xampp Control Panel or via the normal window's services area.</p>
+<p>That's all there is to it. Simple, right? If you have any problems you may have mistyped something in your php.ini, so double check it and try resaving. You can test your install with this php snippet:<br />
+<blockquote>$mem = new Memcache;<br />$mem->connect(&#8216;localhost', 11211);<br />$mem->set(&#8216;test', &#8216;Hello, World!');<br />echo $mem->get(&#8216;test');</p></blockquote>
+<p>If the code above doesn't output Hello, World! onto the screen then something is wrong. Make sure the Memcache.exe file is running if you haven't installed as a service, or else php won't have anything to connect to.</p>
+<p>You can always contact me if you need help with anything, I always reply to my emails and I'm happy to answer any questions you may have. Comments work too.</p>

@@ -1,0 +1,11 @@
+---
+layout: post
+title: "APC (Alternate PHP Cache) Drawback"
+date: 2011-02-11 20:30:00
+tags: 
+---
+
+Today I was experimenting with various caching techniques in PHP and Apache to try to speed up my site, while still keep all of my content real-time and efficient. I will be writing a full post on my experiment and my results later on tonight, but for now I just want to write a quick post about APC.</p>
+<p><a name='more'></a>First of all, APC can only run on one server, and can't communicate with other servers in a cluster, or remotely; this makes it useless for scaling, but useful for other scenarios as I will explain. Mainly, APC can only be used for small amounts of data that need to be read extremely fast. As far as I can tell, APC uses the shared memory of the running Apache process, and not it's own server.</p>
+<p>My problem with the software is that if you can't access it via cron, unless you use something like curl or wget, which isn't really tidy, but doable. I found out while experimenting earlier, that if you up to the cache using apc_store via a script running from the command line directly in PHP, then an Apache request (standard web request) can't access the data, because it was not ran through Apache. This is quite annoying due to the fact I update my cache via crons so my site is extremely responsive, but I will also write a separate post about that.</p>
+<p>All in all, APC is an amazing piece of technology, and I plan to use it a lot in my projects from now on, just not in the way I had hoped. It also speeds up Apache by default once enabled, without having to manually use the cache via PHP. It's a very negligible, but noticeable difference in performance, I wonder how it performs under heavy load?</p>

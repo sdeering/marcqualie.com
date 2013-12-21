@@ -1,0 +1,37 @@
+---
+layout: post
+title: "Install MongoDB on Ubuntu 12.04"
+date: 2012-06-18 23:50:35
+tags: 
+ - MongoDB
+ - Database
+ - Code
+ - MongoDBUK
+ - Snippets
+---
+
+Here is a small script I whipped up while I was bored in the Travelodge waiting for <a href="https://twitter.com/search/%23mongodbuk" target="_blank">#MongoDBUK</a>. It's basically a drop in script to make sure MongoDB is installed with the default settings, and up to date. Very simple, but it saves running the commands manually each time. I may update this in the future when I find a better way to check if a key is already added before always inserting it</p>
+<p><code class="prettyprint lang-bash"><br />
+#!/usr/bin/env sh</p>
+<p># Sudo is required to install everything properly<br />
+if [ "$(whoami)" != "root" ]; then<br />
+	echo "You need to use sudo to run this command"<br />
+	exit 0;<br />
+fi</p>
+<p>echo "Installing MongoDB, please be patient, this could take a few minutes.."<br />
+REPOSOURCE="deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen"<br />
+REPOFILE=/etc/apt/sources.list</p>
+<p># Make sure packages are up to date and key exists<br />
+apt-get update -qq && sudo apt-get upgrade -qq -y<br />
+apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10</p>
+<p># Append to repo<br />
+if ! grep -Fxq "$REPOSOURCE" $REPOFILE<br />
+then<br />
+	echo ": Adding $REPOSOURCE to $REPOFILE"<br />
+	echo "$REPOSOURCE" >> $REPOFILE<br />
+	apt-get update -qq<br />
+fi</p>
+<p># Run install<br />
+apt-get install -y mongodb-10gen<br />
+</code></p>
+<p>I normally put this in my home folder at <em>~/install-mongodb</em> then run it using <code>sudo ./install-mongodb</code>. Note that sudo is actually a requirement, and the script will warn you if it you don't have root permissions. I will add more scripts in the next few hours as I go through the MongoDB UK workshops to have simple ways of switching configs for different scenarios and replacing the defaults to enable auth, for example. If you have any cool things you'd like me to write about regarding MongoDB please feel free to ask in the comments.</p>

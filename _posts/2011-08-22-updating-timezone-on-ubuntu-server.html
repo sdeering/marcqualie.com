@@ -1,0 +1,12 @@
+---
+layout: post
+title: "Updating Timezone on Ubuntu Server"
+date: 2011-08-22 13:15:00
+tags: 
+---
+
+Here is a quick snippet for updating the time zone on Ubuntu Servers via the command line. This will be part of the series I'm writing on getting set up as fast as possible with an Amazon EC2 Instance running Ubuntu Server.<br />
+<blockquote>echo &#8220;Europe/London&#8221; | sudo tee /etc/timezone <br />sudo dpkg-reconfigure &#8211;frontend noninteractive tzdata </p></blockquote>
+<p>You can check if this has worked by typing date into the command line, which should show the correct date and time for your location. If for some reason the time is wrong, make sure you've typed the right timezone, or manually update your server's clock using: <br />
+<blockquote>date -s &#8220;08/22/20011 14:25:00&#8243; </p></blockquote>
+<p>Hopefully this will save you some time wondering why your times are wrong on your PHP scripts, or Cron scripts run at obscure times.</p>

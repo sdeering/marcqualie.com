@@ -1,0 +1,8 @@
+---
+layout: post
+title: "Using Curl to Download Files via Command Line"
+date: 2012-04-04 21:06:00
+tags: 
+---
+
+I recently just discovered that Mac OSX doesn't have <a href="http://www.gnu.org/software/wget/" target="_blank"">wget</a> functionality, and that's one of the most useful things about the command line to quickly download files without a UI. The most common time I use it is when I want to download .swf files, which isn't very streamlined through the browser. The quickest way to download a file would be to run &#8220;wget -O ~/Downloads/eggstinction.swf http://www.freeonlinegames.com/games/21945/game.swf&#8221; in the command and your file would simply be in your Downloads folder. Since wget isn't available, this is where <a href="http://curl.haxx.se/" target="_blank">curl</a> comes in. To do this in Mac OSX (or any other OS with Curl installed) you would simply run &#8220;curl http://www.freeonlinegames.com/games/21945/game.swf > ~/Downloads/eggstinction.swf&#8221;. Very short post, but straight to the point. Downloading files in this mannor is very useful, one of which is storing large files in a personal cloud system then only downloading them when you need them. Very useful if you write a script to download batches using curl, but that's another post.</p>

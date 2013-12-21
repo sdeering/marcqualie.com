@@ -1,0 +1,24 @@
+---
+layout: post
+title: "MongoMinify Launched"
+date: 2013-02-05 20:55:26
+tags: 
+ - MongoDB
+ - Open Source
+ - PHP
+ - Project
+ - Composer
+---
+
+<p>Today I finally released the beta version of my MongoDB compression library for PHP. There still a lot of work to be done, but it's stable enough to use as a drop replacement for standard usage such as saving and retrieving data. Not only have I released the source code, but I've also submitted it as a composer package on <a href="https://packagist.org" target="_blank">packagist.org</a> so everyone can include it in their projects very easily.</p>
+
+<p>The library is fully unit tested and has been benchmarked with millions of documents yielding impressive results. This is my first real open source contribution, and also my first fully packed and tested library. I am looking for feature requests and bug reports for as many use cases as possible before releasing it as version 0.1, so the code is currently on dev-master by design; not because I'm too lazy to version it.</p>
+
+<p>Currently there is no support for the aggregation framework or map reduce, but this is in the pipeline and will be available shortly. These options are still available manually through the $native-> interface on each component of the library with manual attributes.</p>
+
+<p>An overall goal for this project is to be a 100% drop-in replacement for the native MongoDB PHP driver, which means it will eventually support all features that does with a few extra optimisations and helpers. Any feedback is welcome and I'd love to know what you guys think. Below are the links to grab the code and start using it right away.</p>
+
+<ul>
+  <li>Source: <a href="https://github.com/marcqualie/mongominify">https://github.com/marcqualie/mongominify</a></li>
+  <li>Packagist: <a href="https://packagist.org/packages/marcqualie/mongominify">https://packagist.org/packages/marcqualie/mongominify</a></li>
+</ul>

@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Installing 64-bit Flash Player on Ubuntu"
+date: 2011-05-08 16:14:00
+tags: 
+---
+
+I recently just dusted down an old laptop to use as at work, and I felt Ubuntu was the smart option since I'm becoming very fond of Linix lately. I also want all of my files to be my own, and not be on my work machine when I'm not there (a whole new Blog post on network mounting coming soon). However, since I installed 64-bit version of Ubuntu 10.04 I ran into an issue when it came to using Flash Player in Chrome.</p>
+<p><a name='more'></a>Basically my problem is that I had to install 64-bit version of Chrome .deb package, which doesn't support 32 bit flash plugins. Annoying. Luckily there is a native Flash Player build that can help out, it's called <a href="http://labs.adobe.com/technologies/flashplayer10/square/" target="_blank">Flash Player Square</a>. Problem is, it's not very helpful on how to Install. I assume most Linux users would already know, but since I'm new to Ubuntu and Linux having a GUI then I wasn't sure what to do with the .so file. Turns out it's very simple.</p>
+<p>All you have to do is copy libflashplayer.so file into the <b>/usr/lib64/mozilla/plugins</b> directory. Once you've done that simply restart chrome and visit <b>about:plugins</b> in your address bar and you should see Flash is enabled. Seriously, that's all you have to do. Personally, I was a bit let down because I love the challenge of hacking things and this way too simple to think possible! Looks like I'm going to have to find something else to hack to finish up my weekend; Triple Gateway Secured Proxy, Personal SVN Server and Spotify on Linux? Sounds fun..</p>

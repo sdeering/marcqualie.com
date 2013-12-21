@@ -1,0 +1,10 @@
+---
+layout: post
+title: "TouchEvent in FlashDevelop?"
+date: 2011-02-28 03:14:00
+tags: 
+---
+
+Today I received my Kinect Cable (oh yeah!) so I could start playing around with some hacks. Unfortunately, I was in a lazy mood, so Instead of learning the C#, Java or Python versions of these SDK's, I went with the Actionscript version since I am much more fluent in coding this. Turns out, FlashDevelop doesn't have TouchEvent!<br /><a name='more'></a><br />If I compiled my code using Adobe Flash CS5, it runs fine; If I run my code using FlashDevelop I get a nasty &#8220;Error: Definition flash.events:TouchEvent could not be found&#8221;. This was a problem for me because I don't like using Adobe Flash IDE. I prefer to make all of my projects using only code and embedded assets; mainly because it compiles faster and I prefer the interface and auto complete performance.</p>
+<p>Now to my point, which is why you're here, right? Flex SDK 4.1 does not support TouchEvent for some reason, however the Actionscript 3.0 library included with Flash CS5 does. If you want to enable Touch Events in FlashDevelop simply copy <b>C:\Program Files (x86)\Adobe\Adobe Flash CS5\Common\Configuration\ActionScript 3.0\FP10\playerglobal.swc</b> to your project folder and select &#8220;Add To Library&#8221; from FlashDevelop. I hope this helps someone save some time, it took me quite a while to figure this out.</p>
+<p><i>P.s. The OpenKinect Actionscript library has TouchEvents in for some reason, and that's why I was looking for this. Basically I was too lazy to modify the code to take the Touch Events out, but I will write my own library in the future.</i></p>

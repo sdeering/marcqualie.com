@@ -1,0 +1,38 @@
+---
+layout: post
+title: "Install RabbitMQ on Ubuntu 12.04 Quickly"
+date: 2012-12-07 11:11:30
+tags: 
+ - Linux
+ - Tips
+ - Ubuntu
+ - Install
+ - AMQP
+ - Scripts
+ - RabbitMQ
+---
+
+<p>I've put together this simple install script that I compiled from the various tutorials on the rabbitmq site. It's not intended to be anything new or that isn't easily accessible; It's simply the quickest way I've found to get up and running with the web interface out of the box.</p>
+
+<pre class="prettyprint lang-bash">
+echo "deb http://www.rabbitmq.com/debian/ testing main" > /etc/apt/sources.list.d/rabbitmq.list
+wget http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
+sudo apt-key add rabbitmq-signing-key-public.asc
+apt-get update
+apt-get install rabbitmq-server -y
+service rabbitmq-server start
+rabbitmq-plugins enable rabbitmq_management
+rabbitmqctl add_user admin password
+rabbitmqctl set_user_tags admin administrator
+rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
+rabbitmqctl delete_user guest
+service rabbitmq-server restart
+</pre>
+
+<p>Make sure you change the word "password" to the actual password you want to login with in the add_user line before running. The default port for the admin interface is 15672. You can use the management interface to finish off your configuration such as adding exchanges, queues, users and vhosts. Make sure to open the correct firewall ports (15672, 5672) if you are going to be accessing the box outside of a VPN or localhost.</p>
+
+<p><strong>Update:<strong> I've also added a gist s you can easily install it with a one line command<p>
+
+<pre class="prettyprint lang-bash">
+curl https://gist.github.com/marcqualie/4745097/raw/install.rabbitmq.sh | sh
+</pre>
