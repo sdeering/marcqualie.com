@@ -8,7 +8,9 @@ html {
 }
 body {
 /*    padding-top: 60px;*/
-    background: transparent;
+}
+* {
+    /*font-family: "Proxima Nova", serif;*/
 }
 @media (max-width: 992px) and (min-width: 786px) {
     /*
@@ -43,7 +45,6 @@ body > .container.spacer-top-double {
     margin-bottom: 20px;
 }
 a {
-
 }
 h1, h2, h3, h4, h5, h6 {
     text-rendering: optimizeLegibility;
@@ -66,7 +67,34 @@ h1, h2, h3, h4, h5, h6 {
  *      Navbar
  *
  */
-
+.navbar {
+    min-height: 46px;
+}
+.navbar-inverse {
+    background: #131326;
+}
+.navbar-inverse .navbar-brand {
+    color: #fff;
+    padding: 13px 15px;
+}
+.navbar-inverse .navbar-nav > li > a {
+    padding: 13px 15px;
+}
+.navbar-inverse .navbar-nav > .active > a {
+    color: #fff;
+    background: transparent;
+    padding-top: 11px;
+    border-top: 2px solid #fff;
+}
+.navbar-inverse .navbar-nav > .active > a:hover {
+    background: transparent;
+}
+@media (max-width: 767px) {
+    .navbar-inverse .navbar-nav > .active > a {
+        border-top: none;
+        padding-top: 13px;
+    }
+}
 
 
 /**
