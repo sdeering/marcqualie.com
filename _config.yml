@@ -3,6 +3,7 @@ markdown: redcarpet
 excerpt_separator: "\n\n"
 pygments: true
 paginate: 5
+permalink: /:year/:month/:title
 paginate_path: "posts/:num"
 exclude:
  - import.php
