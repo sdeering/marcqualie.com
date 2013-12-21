@@ -27,9 +27,9 @@
         </button>
         <div class="nav-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/" title="Marc Qualie's Blog">Blog</a></li>
-                <li><a href="/projects/" title="Marc Qualie's Projects">Projects</a></li>
-                <li><a href="/about/" title="About Marc Qualie">About</a></li>
+                <li{% if page.class == 'posts' %} class="active"{% endif %}><a href="/" title="Marc Qualie's Latest Posts">Blog</a></li>
+                <li{% if page.class == 'projects' %} class="active"{% endif %}><a href="/projects/" title="Marc Qualie's Projects">Projects</a></li>
+                <li{% if page.class == 'about' %} class="active"{% endif %}><a href="/about/" title="About Marc Qualie">About</a></li>
                 <li><a href="https://twitter.com/marcqualie" title="Follow Marc Qualie on Twitter" target="_blank"><span class="icon-twitter"></span> Follow Me</a></li>
                 <li><a href="https://github.com/marcqualie" title="Fork Marc Qualie on Github" target="_blank"><span class="icon-github"></span> Fork Me</a></li>
             </ul>
