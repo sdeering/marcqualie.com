@@ -16,7 +16,7 @@ layout: none
     <link href="{{ site.url }}{{ post.url }}"/>
     <published>{{ post.date | date_to_xmlschema }}</published>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <summary type="html"><![CDATA[{{ post.excerpt | xml_escape }}]]></summary>
+    <summary type="html"><![CDATA[{{ post.excerpt }}]]></summary>
 {% for tag in tags %}
     <category term="{{ tag }}"/>
 {% endfor %}
