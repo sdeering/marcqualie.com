@@ -10,4 +10,4 @@ exclude:
 
 # Search
 lunr_search:
-  excludes: []
+  min_length: 3

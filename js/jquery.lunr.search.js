@@ -55,7 +55,11 @@
 
     // compile search results template
     LunrSearch.prototype.compileTemplate = function($template) {
-      return Mustache.compile($template.text());
+      var template = $template.text();
+      Mustache.parse(template);
+      return function (view, partials) {
+        return Mustache.render(template, view, partials);
+      };
     };
 
     // load the search index data
@@ -108,7 +112,7 @@
     LunrSearch.prototype.search = function(query) {
       var entries = this.entries;
 
-      if (query.length <= 2) {
+      if (query.length === 0) {
         this.$results.hide();
         this.$entries.empty();
       } else {
@@ -125,9 +129,10 @@
         $results = this.$results;
 
       $entries.empty();
+      entries = entries.slice(0, 10);
 
       if (entries.length === 0) {
-        $entries.append('<p>Nothing found.</p>')
+        $entries.append('<article><h3>Nothing found.</h3></article>');
       } else {
         $entries.append(this.template({entries: entries}));
       }

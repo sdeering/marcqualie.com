@@ -12,75 +12,70 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="/css/layout.css"/>
     <link rel="stylesheet" href="/css/blog.css"/>
-    <link rel="stylesheet" href="/css/blog.css"/>
     <link rel="stylesheet" href="/css/footer.css"/>
-    <link rel="stylesheet" href="/css/search.css"/>
     <link rel="stylesheet" href="/css/syntax.css"/>
+    <link rel="stylesheet" href="/css/app.css"/>
 </head>
 <body>
 
 <div class="navbar navbar-static-top navbar-inverse">
     <div class="container">
-        <a href="/" title="Marc Qualie" class="navbar-brand">Marc <strong>Qualie</strong></a>
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <div class="nav-collapse collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav">
-                <li{% if page.class == 'posts' %} class="active"{% endif %}><a href="/" title="Marc Qualie's Latest Posts">Blog</a></li>
-                <li{% if page.class == 'projects' %} class="active"{% endif %}><a href="/projects/" title="Marc Qualie's Projects">Projects</a></li>
-                <li{% if page.class == 'about' %} class="active"{% endif %}><a href="/about/" title="About Marc Qualie">About</a></li>
-                <li><a href="https://twitter.com/marcqualie" title="Follow Marc Qualie on Twitter" target="_blank"><span class="icon-twitter"></span> Follow Me</a></li>
-                <li><a href="https://github.com/marcqualie" title="Fork Marc Qualie on Github" target="_blank"><span class="icon-github"></span> Fork Me</a></li>
-            </ul>
-            <div id="search">
-              <form action="/search" method="get">
-                <input type="text" id="search-query" name="q" placeholder="Search" autocomplete="off"/>
-              </form>
-            </div>
+      <a href="/" title="Marc Qualie" class="navbar-brand">Marc <strong>Qualie</strong></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="nav-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+          <li{% if page.class == 'posts' %} class="active"{% endif %}><a href="/" title="Marc Qualie's Latest Posts">Blog</a></li>
+          <li{% if page.class == 'projects' %} class="active"{% endif %}><a href="/projects/" title="Marc Qualie's Projects">Projects</a></li>
+          <li{% if page.class == 'about' %} class="active"{% endif %}><a href="/about/" title="About Marc Qualie">About</a></li>
+          <li><a href="https://twitter.com/marcqualie" title="Follow Marc Qualie on Twitter" target="_blank"><span class="icon-twitter"></span> Follow Me</a></li>
+          <li><a href="https://github.com/marcqualie" title="Fork Marc Qualie on Github" target="_blank"><span class="icon-github"></span> Fork Me</a></li>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+          <li><a href="javascript:void(0)" id="search-button"><span class="icon-search"></span> Search</a></li>
+        </ul>
+      </div>
+      <form id="search-form" class="hidden">
+        <input type="text" class="form-control" id="search-query" name="q" value="" placeholder="Start typing here.."/>
+        <div id="search-results">
+          <div class="entries"></div>
         </div>
+      </form>
     </div>
 </div>
 
 <div class="container spacer-top">
   <div class="row">
 
-{% raw %}
-    <script id="search-results-template" type="text/mustache">
-    {{#entries}}
-      <article>
-        <h3>
-          {{#date}}<small><time datetime="{{pubdate}}" pubdate>{{displaydate}}</time></small>{{/date}}
-          <a href="{{url}}">{{title}}</a>
-        </h3>
-      </article>
-    {{/entries}}
-    </script>
-{% endraw %}
-    <div id="search-results">
-      <div class="entries"></div>
-    </div>
-
     <div class="col col-lg-9 blog-post-list">
-
       {{ content }}
-
     </div>
 
     <!-- Sidebar -->
     <div class="col col-lg-3 blog-sidebar">
-
       {% include sidebar.html %}
-
     </div>
 
   </div>
 </div>
 
+{% raw %}
+<!-- Search Template -->
+<script id="search-results-template" type="text/mustache">
+{{#entries}}
+  <article>
+    <h3><a href="{{url}}">{{title}}</a></h3>
+    {{#date}}<small><time datetime="{{pubdate}}" pubdate>{{displaydate}}</time></small>{{/date}}
+  </article>
+{{/entries}}
+</script>
+{% endraw %}
+
 <!-- Scripts -->
-<script src="/js/jquery.js"></script>
+<script src="/js/jquery-1.10.2.min.js"></script>
 <script src="/js/lunr.js"></script>
 <script src="/js/mustache.js"></script>
 <script src="/js/date.format.js"></script>
