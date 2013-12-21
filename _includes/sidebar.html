@@ -1,38 +1,36 @@
-        <div class="panel panel-primary">
-            <h3 class="panel-heading">Recent Posts</h3>
-            <ul class="list-nostyle">
-                <li><a href="/2013/07/server-backups-with-s3cmd" title="Server Backups with s3cmd">Server Backups with s3cmd</a></li>
-                <li><a href="/2013/07/criterion:-a-php-ci-server" title="Criterion: A PHP CI Server">Criterion: A PHP CI Server</a></li>
-                <li><a href="/2013/06/homebrew-nginx-tap" title="Homebrew Nginx Tap">Homebrew Nginx Tap</a></li>
-                <li><a href="/2013/06/open-source-challenge-complete" title="Open Source Challenge Complete!">Open Source Challenge Complete!</a></li>
-                <li><a href="/2013/06/statsd-php-library" title="StatsD PHP Library">StatsD PHP Library</a></li>
-            </ul>
-        </div>
+<div class="panel panel-primary">
+  <h3 class="panel-heading">Recent Posts</h3>
+  <ul class="list-nostyle">
+{% for post in site.posts limit:5 %}
+    <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+{% endfor %}
+  </ul>
+</div>
 
-        <div class="btn-group btn-group-justified">
-            <a class="btn btn-success" href="/random/" rel="nofollow"><span class="icon-random"></span> <span class="visible-lg">Random</span></a>
-            <a class="btn btn-info" href="/archive/" title="Blog Archive"><span class="icon-folder-close"></span> <span class="visible-lg">Archives</span></a>
-            <a class="btn btn-warning" href="/feed/" title="Subscribe to my Feed"><span class="icon-bookmark"></span> <span class="visible-lg">Subscribe</span></a>
-        </div>
+<div class="btn-group btn-group-justified">
+  <a class="btn btn-success" href="/random/" rel="nofollow"><span class="icon-random"></span> <span class="visible-lg">Random</span></a>
+  <a class="btn btn-info" href="/archive/" title="Blog Archive"><span class="icon-folder-close"></span> <span class="visible-lg">Archives</span></a>
+  <a class="btn btn-warning" href="/feed/" title="Subscribe to my Feed"><span class="icon-bookmark"></span> <span class="visible-lg">Subscribe</span></a>
+</div>
 
-        <br/>
-        <div class="panel panel-info">
-            <h3 class="panel-heading">Popular Tags</h3>
-            <ul class="list-nostyle popular-tags clearfix">
-                <li><a href="/tag/open-source" title="Open Source Posts"><span class="label">Open Source</span></a></li>
-                <li><a href="/tag/github" title="Github Posts"><span class="label">Github</span></a></li>
-                <li><a href="/tag/php" title="PHP Posts"><span class="label">PHP</span></a></li>
-                <li><a href="/tag/git" title="Git Posts"><span class="label">Git</span></a></li>
-                <li><a href="/tag/nginx" title="Nginx Posts"><span class="label">Nginx</span></a></li>
-                <li><a href="/tag/ruby" title="Ruby Posts"><span class="label">Ruby</span></a></li>
-                <li><a href="/tag/criterion" title="Criterion Posts"><span class="label">Criterion</span></a></li>
-                <li><a href="/tag/linux" title="Linux Posts"><span class="label">Linux</span></a></li>
-                <li><a href="/tag/romhut" title="Romhut Posts"><span class="label">Romhut</span></a></li>
-                <li><a href="/tag/digital-ocean" title="Digital Ocean Posts"><span class="label">Digital Ocean</span></a></li>
-                <li><a href="/tag/programming" title="Programming Posts"><span class="label">Programming</span></a></li>
-                <li><a href="/tag/mongodb" title="MongoDB Posts"><span class="label">MongoDB</span></a></li>
-                <li><a href="/tag/mysql" title="MySQL Posts"><span class="label">MySQL</span></a></li>
-                <li><a href="/tag/ubuntu" title="Ubuntu Posts"><span class="label">Ubuntu</span></a></li>
-                <li><a href="/tag/mobile" title="Mobile Posts"><span class="label">Mobile</span></a></li>
-            </ul>
-        </div>
+<br/>
+<div class="panel panel-info">
+  <h3 class="panel-heading">Popular Tags</h3>
+  <ul class="list-nostyle popular-tags clearfix">
+    <li><a href="/tag/open-source" title="Open Source Posts"><span class="label">Open Source</span></a></li>
+    <li><a href="/tag/github" title="Github Posts"><span class="label">Github</span></a></li>
+    <li><a href="/tag/php" title="PHP Posts"><span class="label">PHP</span></a></li>
+    <li><a href="/tag/git" title="Git Posts"><span class="label">Git</span></a></li>
+    <li><a href="/tag/nginx" title="Nginx Posts"><span class="label">Nginx</span></a></li>
+    <li><a href="/tag/ruby" title="Ruby Posts"><span class="label">Ruby</span></a></li>
+    <li><a href="/tag/criterion" title="Criterion Posts"><span class="label">Criterion</span></a></li>
+    <li><a href="/tag/linux" title="Linux Posts"><span class="label">Linux</span></a></li>
+    <li><a href="/tag/romhut" title="Romhut Posts"><span class="label">Romhut</span></a></li>
+    <li><a href="/tag/digital-ocean" title="Digital Ocean Posts"><span class="label">Digital Ocean</span></a></li>
+    <li><a href="/tag/programming" title="Programming Posts"><span class="label">Programming</span></a></li>
+    <li><a href="/tag/mongodb" title="MongoDB Posts"><span class="label">MongoDB</span></a></li>
+    <li><a href="/tag/mysql" title="MySQL Posts"><span class="label">MySQL</span></a></li>
+    <li><a href="/tag/ubuntu" title="Ubuntu Posts"><span class="label">Ubuntu</span></a></li>
+    <li><a href="/tag/mobile" title="Mobile Posts"><span class="label">Mobile</span></a></li>
+  </ul>
+</div>
