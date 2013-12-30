@@ -14,3 +14,12 @@ exclude:
 # Search
 lunr_search:
   min_length: 3
+
+# Assets
+assets:
+  cache: true
+  js_compressor:  uglifier
+  css_compressor: sass
+  sources:
+   - _assets/css
+   - _assets/js

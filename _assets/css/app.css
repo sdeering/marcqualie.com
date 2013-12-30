@@ -1,3 +1,12 @@
+//= require bootstrap.css
+//= require font-awesome.css
+//= require highlight.css
+//= require navbar.css
+//= require footer.css
+//= require blog.css
+//= require search.css
+//= require_self
+
 @media (min-width: 1200px) {
     body {
         padding-top: 70px;

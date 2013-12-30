@@ -1,3 +1,11 @@
+//= require jquery-1.10.2.min.js
+//= require lunr.js
+//= require mustache.js
+//= require date.format.js
+//= require uri.js
+//= require jquery.lunr.search.js
+//= require_self
+
 // Search
 $(function() {
   var searchVisible = false;
