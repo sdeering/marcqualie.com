@@ -1,20 +1,4 @@
 /**
- * Navbar
- */
-.navbar-nav > li > span {
-    line-height: 26px;
-    color: #777777;
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-    cursor: default;
-}
-
-
-
-
-
-/**
  * Post List
  */
 .blog-post-list {
