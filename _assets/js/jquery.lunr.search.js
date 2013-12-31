@@ -129,7 +129,7 @@
         $results = this.$results;
 
       $entries.empty();
-      entries = entries.slice(0, 10);
+      entries = entries.slice(0, this.$results.attr('id') === 'search-results-full' ? 50 : 5);
 
       if (entries.length === 0) {
         $entries.append('<article><h3>Nothing found.</h3></article>');

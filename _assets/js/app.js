@@ -31,6 +31,21 @@ $(function() {
   });
 });
 
+// Full page search
+$(function() {
+  if ($('#search-results-full-template').length === 0) {
+    return;
+  }
+  var searchQuery = $('#search-query-full');
+  searchQuery.focus();
+  searchQuery.lunrSearch({
+    indexUrl: '/search.json',
+    results:  '#search-results-full',
+    entries:  '.entries',
+    template: '#search-results-full-template'
+  });
+});
+
 // Disqus
 var disqus_shortname = 'marcqualie';
 $(function() {
