@@ -8,7 +8,10 @@ class: posts
 {% if tag == page.tag %}
     <div class="post">
         <h2 class="title"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
-        <div class="snippet">
+        <div class="snippet clearfix">
+{% if post.thumb %}
+            <a href="{{ post.url }}"><img src="{{ post.thumb }}" alt="" height="90" class="pull-left" style="margin-right:15px"/></a>
+{% endif %}
             {{ post.excerpt }}
         </div>
         <div class="clearfix">

@@ -19,7 +19,7 @@ layout: default
 {% endfor %}
     </div>
     <div class="date">
-      Posted {{ page.date | date_to_string }} by Marc Qualie
+      Posted <strong>{{ page.date | date_to_string }}</strong> by <strong>Marc Qualie</strong>
     </div>
   </div>
 </div>
@@ -27,5 +27,5 @@ layout: default
 <!-- Disqus Comments -->
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-  var disqus_url = 'http://marcqualie.com{{ post.url }}';
+  var disqus_url = 'http://marcqualie.com{{ page.url }}';
 </script>
