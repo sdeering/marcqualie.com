@@ -1,10 +1,11 @@
 ---
 layout: default
-title: Marc Qualie's Blog
 class: posts
 ---
 
-{% for post in paginator.posts %}
+{% for post in site.posts %}
+{% for tag in post.tags %}
+{% if tag == page.tag %}
     <div class="post">
         <h2 class="title"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
         <div class="snippet">
@@ -24,23 +25,6 @@ class: posts
             </div>
         </div>
     </div>
+{% endif %}
 {% endfor %}
-
-<!-- Pagination links -->
-<div class="pagination">
-  {% if paginator.previous_page %}
-    {% if paginator.previos_page == 1 %}
-    <a href="/" class="previous">Previous</a>
-    {% else %}
-    <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
-    {% endif %}
-  {% else %}
-    <span class="previous">Previous</span>
-  {% endif %}
-  <span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
-  {% else %}
-    <span class="next ">Next</span>
-  {% endif %}
-</div>
+{% endfor %}
