@@ -24,3 +24,8 @@ assets:
   sources:
    - _assets/css
    - _assets/js
+
+# Analytics
+analytics:
+  google:
+    id: UA-4472999-7
