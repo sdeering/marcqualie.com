@@ -2,7 +2,7 @@
     min-height: 46px;
 }
 .navbar .container {
-  position: relative;
+    position: relative;
 }
 .navbar-inverse {
     background: #131326;
@@ -12,23 +12,25 @@
     padding: 13px 15px;
 }
 .navbar-inverse .navbar-nav > li > a {
-    padding: 13px 15px;
+    padding: 11px 15px 13px 15px;
+    color: #999;
+    border-top: 2px solid #131326;
+    -webkit-transition: border-color 0.4s, color 0.4s;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+    background: transparent;
+    color: #ccc;
+    border-top: 2px solid #999;
 }
 .navbar-inverse .navbar-nav > .active > a {
-    color: #5cb85c;
     background: transparent;
-    padding-top: 11px;
-    border-top: 2px solid #5cb85c;
+    color: #fff;
+    border-top: 2px solid #fff;
 }
 .navbar-inverse .navbar-nav > .active > a:hover {
     background: transparent;
-    color: #5cb85c;
-}
-@media (max-width: 767px) {
-    .navbar-inverse .navbar-nav > .active > a {
-        border-top: none;
-        padding-top: 13px;
-    }
+    color: #fff;
+    border-top: 2px solid #fff;
 }
 .navbar-nav > li > span {
     line-height: 26px;
@@ -37,4 +39,10 @@
     display: block;
     padding: 10px 15px;
     cursor: default;
+}
+@media (max-width: 767px) {
+    .navbar-inverse .navbar-nav > .active > a {
+        border-top: none;
+        padding-top: 13px;
+    }
 }
