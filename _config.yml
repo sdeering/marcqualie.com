@@ -1,6 +1,7 @@
 name: "Marc Qualie's Blog"
 description: "My personal tech blog and insights into the world"
 url: "http://marcqualie.com"
+environment: development
 
 markdown: redcarpet
 excerpt_separator: "\n\n"
