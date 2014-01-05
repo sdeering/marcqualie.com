@@ -1,4 +1,5 @@
 //= require jquery-1.10.2.min.js
+//= require bootstrap.js
 //= require lunr.js
 //= require mustache.js
 //= require date.format.js
