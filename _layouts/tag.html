@@ -1,6 +1,7 @@
 ---
 layout: default
 class: posts
+published: true
 ---
 
 {% for post in site.posts %}
@@ -21,7 +22,7 @@ class: posts
             <div class="pull-right">
 {% for tag in post.tags %}
 {% if forloop.index < 4 %}
-                <a href="/tag/{{ tag | downcase }}" class="label label-{% if forloop.index == 1 %}success{% else %}info{% endif %}" title="{{ tag }} Posts">{{ tag }}</a>
+                <a href="/tag/{{ tag | tag_url }}" class="label label-{% if forloop.index == 1 %}success{% else %}info{% endif %}" title="{{ tag }} Posts">{{ tag }}</a>
 {% endif %}
 {% endfor %}
                 <a href="/2013/07/server-backups-with-s3cmd" class="label" title="3 more tags">...</a>
