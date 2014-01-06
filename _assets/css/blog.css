@@ -69,13 +69,11 @@
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
+.blog-post .page-header {
+    margin-top: 0;
+}
 .blog-post .post {
     margin-bottom: 20px;
-}
-.blog-post .title {
-    margin: 0;
-    padding: 0;
-    height: 40px;
 }
 .blog-post .content {
     color: #666;
