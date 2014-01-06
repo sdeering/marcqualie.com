@@ -93,6 +93,19 @@
 .blog-post .date {
     float: right;
 }
+.blog-post .thumbnail {
+    width: 25%;
+    margin: 0 15px 15px 0;
+    border: none;
+    padding: 0;
+}
+@media (max-width: 767px) {
+    .blog-post .thumbnail {
+        width: 100%;
+        float: none;
+        margin: 20px 0;
+    }
+}
 
 
 /**
