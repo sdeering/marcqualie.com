@@ -67,6 +67,9 @@ $(function () {
   $('a').each(function (index, element) {
     var atag = $(element);
     var href = atag.attr('href');
+    if (! href) {
+      return;
+    }
     if (
         href.indexOf('http://marcqualie.com') === -1
      && href.indexOf('https://marcqualie.com') === -1
