@@ -61,3 +61,20 @@ $(function () {
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   }
 });
+
+// Links open in new tab
+$(function () {
+  $('a').each(function (index, element) {
+    var atag = $(element);
+    var href = atag.attr('href');
+    if (
+        href.indexOf('http://marcqualie.com') === -1
+     && href.indexOf('https://marcqualie.com') === -1
+     && href.indexOf('/') !== 0
+     && href.indexOf('javascript:') !== 0
+     && href.indexOf('#') !== 0
+    ) {
+      atag.attr('target', '_blank');
+    }
+  })
+});
