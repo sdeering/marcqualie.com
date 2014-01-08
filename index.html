@@ -23,7 +23,7 @@ class: posts
                 <a href="/tag/{{ tag | tag_url }}" class="label label-{% if forloop.index == 1 %}success{% else %}info{% endif %}" title="{{ tag }} Posts">{{ tag }}</a>
 {% endif %}
 {% endfor %}
-                <a href="/2013/07/server-backups-with-s3cmd" class="label" title="3 more tags">...</a>
+                <a href="{{ post.url }}" class="label" title="3 more tags" rel="nofollow">...</a>
             </div>
         </div>
     </div>
