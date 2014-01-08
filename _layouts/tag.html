@@ -11,7 +11,7 @@ published: true
         <h2 class="title"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
         <div class="snippet clearfix">
 {% if post.thumb %}
-            <a href="{{ post.url }}"><img src="{{ post.thumb }}" alt="" height="90" class="pull-left" style="margin-right:15px"/></a>
+            <a href="{{ post.url }}" title="{{ post.title }}"><img src="{{ post.thumb }}" alt="" height="90" class="pull-left" style="margin-right:15px"/></a>
 {% endif %}
             {{ post.excerpt }}
         </div>
@@ -25,7 +25,7 @@ published: true
                 <a href="/tag/{{ tag | tag_url }}" class="label label-{% if forloop.index == 1 %}success{% else %}info{% endif %}" title="{{ tag }} Posts">{{ tag }}</a>
 {% endif %}
 {% endfor %}
-                <a href="/2013/07/server-backups-with-s3cmd" class="label" title="3 more tags">...</a>
+                <a href="{{ post.url }}" class="label" title="3 more tags" rel="nofollow">...</a>
             </div>
         </div>
     </div>
