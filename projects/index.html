@@ -7,10 +7,10 @@ class: projects
 <table class="table table-striped table-hover">
 {% for project in site.data.projects %}
 <tr>
-  <td width="260"><span class="icon-github"></span> <a href="{{ project.link }}" target="_blank">{{ project.name }}</a></td>
-  <td class="text-muted">{{ project.description | truncate 20 }}</td>
-  <td width="50" class="text-left"><span class="icon-star"></span> {{ project.stars }}</td>
-  <td width="50" class="text-right">{{ project.forks }} <span class="icon-code-fork"></span></td>
+  <td class="col-lg-3"><span class="icon-github"></span> <a href="{{ project.link }}" target="_blank">{{ project.name }}</a></td>
+  <td class="col-lg-7">{{ project.description | truncate 32 }}</td>
+  <td class="col-lg-1 text-left"><span class="icon-star"></span> {{ project.stars }}</td>
+  <td class="col-lg-1 text-right">{{ project.forks }} <span class="icon-code-fork"></span></td>
 </tr>
 {% endfor %}
 </table>
