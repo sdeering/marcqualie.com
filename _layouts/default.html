@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{{ page.title }}</title>
-    <link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}"/>
+    {% if page.canonical %}<link rel="canonical" href="{{ site.url }}{{ page.canonical }}"/>{% else %}<link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}"/>{% endif %}
     <link rel="icon" type="image/png" href="/favicon.png"/>
     <link rel="alternate" type="application/rss+xml" title="My Personal Tech Blog" href="{{ site.url }}/feed.xml"/>
     <link rel="stylesheet" href="{% asset_path app.css %}"/>
