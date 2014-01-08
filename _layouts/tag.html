@@ -11,7 +11,7 @@ published: true
         <h2 class="title"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
         <div class="snippet clearfix">
 {% if post.thumb %}
-            <a href="{{ post.url }}" title="{{ post.title }}"><img src="{{ post.thumb }}" alt="" height="90" class="pull-left" style="margin-right:15px"/></a>
+            <a href="{{ post.url }}" title="{{ post.title }}"><img src="{{ post.thumb }}" alt="{{ post.title }}" height="90" class="pull-left" style="margin-right:15px"/></a>
 {% endif %}
             {{ post.excerpt }}
         </div>
