@@ -9,9 +9,8 @@ module Jekyll
       self.read_yaml(File.join(base, '_layouts'), 'tag.html')
       self.data['tag'] = tag
       self.data['canonical'] = "/tag/#{tag.downcase.gsub(' ', '-')}"
-      tag_title_prefix = site.config['tag_title_prefix'] || 'Posts Tagged &ldquo;'
-      tag_title_suffix = site.config['tag_title_suffix'] || '&rdquo;'
-      self.data['title'] = "#{tag_title_prefix}#{tag}#{tag_title_suffix}"
+      self.data['description'] = "Blog posts tagged &ldquo;#{tag}&rdquo;"
+      self.data['title'] = "#{tag} Posts on Marc Qualie's Blog"
     end
   end
   class TagGenerator < Generator
