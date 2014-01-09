@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Jekyll is no longer Hyde-ing"
-date: 2014-01-09 22:00:00
+date: {}
 thumb: /images/jekyll.png
-tags:
+tags: 
   - Update
   - Personal
   - Development
@@ -11,6 +11,7 @@ tags:
   - Jekyll
   - CMS
   - Go Static
+published: true
 ---
 
 After convincing myself all year that I will finally Go Static and get rid of my custom CMS for this Blog, I decided to finally launch it on the very last day of the year; Talk about leaving things until the last minute! This isn't a complete coincidence though, as I've been working long hours on a new project which is related to Jekyll development. I'll blog about this separatly further into the year. This post is going to cover why I chose Jekyll, and why it's going to be so powerful as my content platform moving into 2014.
@@ -21,7 +22,7 @@ This is the question on almost everyone's mind when I talk to them about Jekyll.
 
 ### Almost too easy to set up
 
-For those of you who have set-up a CMS (e.g Wordpress) you know it can be difficult to both initially set up and to maintain for a client. Setting up a secure database, installing a cache, plug-ins, version upgrades, security patches and theme dependencies are just some of the things you have to battle with when maintaining a traditonal CMS. What happens when your new theme doesn't work with one of the plug-ins that are running but an alternative plug-in doesn't work with another plug-in that is installed? Imagine if all of that was gone. Since Jekyll is entirely flat file based there is no database or cache needed to get high performance. There is no dynamic scripting language so it's virtually impossible to get hacked via your web server. Setting up Jekyll takes a matter of minutes rather than hours of even days in some cases.
+For those of you who have set-up a CMS (e.g Wordpress) you know it can be difficult to both initially set up and to maintain for a client. Setting up a secure database, installing a cache, plug-ins, version upgrades, security patches and theme dependencies are just some of the things you have to battle with when maintaining a traditional CMS. What happens when your new theme doesn't work with one of the plug-ins that are running but an alternative plug-in doesn't work with another plug-in that is installed? Imagine if all of that was gone. Since Jekyll is entirely flat file based there is no database or cache needed to get high performance. There is no dynamic scripting language so it's virtually impossible to get hacked via your web server. Setting up Jekyll takes a matter of minutes rather than hours or even days in some cases.
 
 ### No backup strategy needed
 
@@ -45,4 +46,4 @@ Jekyll isn't for everyone. It's mainly aimed at developers due to the fact you a
 
 ### Conclusion
 
-Overall Jekyll is a great platform for managing your content but it's still maturing. Go Static will be aimed at bridging the gap between flat file, version controlled markdown with a beautiful and easy to use control panel which requires no technical knowledge to set up and use. Use the comments below if you have any questions or thoughts around Jekyll or Static Site Managing in general. I'd love to get your feedback!
+Overall Jekyll is a great platform for managing your content but it's still maturing. The project I'm working on will be aimed at bridging the gap between flat file version controlled markdown with a beautiful and easy to use control panel which requires no technical knowledge to set up and use. Use the comments below if you have any questions or thoughts around Jekyll or Static Site Managing in general. I'd love to get your feedback!
