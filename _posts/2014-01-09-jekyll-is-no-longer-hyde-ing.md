@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Jekyll is no longer Hyde-ing"
-date: {}
+date: 2014-01-09 19:40:00
 thumb: /images/jekyll.png
-tags: 
+tags:
   - Update
   - Personal
   - Development
