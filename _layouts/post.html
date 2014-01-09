@@ -5,12 +5,12 @@ layout: default
 <div class="blog-post margin-bottom-20">
 
   <div class="page-header text-center">
-    <h2><a href="{{ site.url }}{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h2>
+    <h2><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h2>
   </div>
 
   <div class="content">
 {% if page.thumb %}
-    <img src="{{ site.url }}{{ page.thumb }}" alt="" class="pull-left thumbnail"/>
+    <img src="{{ page.thumb }}" alt="" class="pull-left thumbnail"/>
 {% endif %}
     {{ content }}
   </div>
@@ -18,7 +18,7 @@ layout: default
   <div class="info">
     <div class="tags">
 {% for tag in page.tags %}
-      <a href="{{ site.url }}/tag/{{ tag | tag_url }}" class="label">{{ tag }}</a>
+      <a href="/tag/{{ tag | tag_url }}" class="label">{{ tag }}</a>
 {% endfor %}
     </div>
     <div class="date">
