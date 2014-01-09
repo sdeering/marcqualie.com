@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jekyll is no longer Hyde-ing"
-date: 2014-01-07 22:00:00
+date: 2014-01-09 22:00:00
 thumb: /images/jekyll.png
 tags:
   - Update
@@ -13,7 +13,7 @@ tags:
   - Go Static
 ---
 
-After convincing myself all year that I will finally [Go Static](https://gostatic.io) and get rid of my custom CMS for this Blog, I decided to finally launch it on the very last day of the year; Talk about leaving things until the last minute! This isn't a complete coincidence though, as I've been working long hours on a new project which is related to Jekyll development. I'll blog about this separatly further into the year. This post is going to cover why I chose Jekyll, and why it's going to be so powerful as my content platform moving into 2014.
+After convincing myself all year that I will finally Go Static and get rid of my custom CMS for this Blog, I decided to finally launch it on the very last day of the year; Talk about leaving things until the last minute! This isn't a complete coincidence though, as I've been working long hours on a new project which is related to Jekyll development. I'll blog about this separatly further into the year. This post is going to cover why I chose Jekyll, and why it's going to be so powerful as my content platform moving into 2014.
 
 ### Why Jekyll over custom CMS?
 
