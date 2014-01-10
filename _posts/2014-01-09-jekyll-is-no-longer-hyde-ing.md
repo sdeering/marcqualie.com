@@ -14,7 +14,7 @@ tags:
 published: true
 ---
 
-After convincing myself all year that I will finally Go Static and get rid of my custom CMS for this blog, I decided to finally launch it on the very last day of the year; Talk about leaving things until the last minute! This isn't a complete coincidence though, as I've been working long hours on a new project which is related to Jekyll development. I'll blog about this separately further into the year. This post is going to cover why I chose Jekyll, and why it's going to be so powerful as my content platform moving into 2014.
+After convincing myself all year that I will finally Go Static and get rid of my custom CMS for this blog, I decided to finally launch it on the very last day of the year; Talk about leaving things until the last minute! This isn't a complete coincidence though, as I've been working long hours on a new project which is related to Jekyll development. I'll blog about this separately further into the year. This post is going to cover why I chose Jekyll, and why it's going to be so powerful moving into 2014.
 
 ### Why Jekyll over custom CMS?
 
