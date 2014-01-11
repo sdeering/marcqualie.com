@@ -2,15 +2,15 @@
 layout: post
 title: "Jekyll is no longer Hyde-ing"
 date: 2014-01-09 19:40:00
-thumb: /images/jekyll.png
+thumb: jekyll.png
 tags:
+  - Jekyll
+  - Programming
+  - Development
+  - Go Static
+  - CMS
   - Update
   - Personal
-  - Development
-  - Programming
-  - Jekyll
-  - CMS
-  - Go Static
 published: true
 ---
 

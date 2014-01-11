@@ -23,6 +23,7 @@ assets:
   sources:
    - _assets/css
    - _assets/js
+   - _assets/images
 
 # Analytics
 analytics:
