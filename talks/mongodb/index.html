@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>MongoDB: Fast an Painless Scaling</title>
+    <meta name="description" content=""/>
+    <meta name="author" content="Marc Qualie"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="css/reveal.min.css"/>
+    <link rel="stylesheet" href="css/theme/default.css" id="theme"/>
+    <link rel="stylesheet" href="lib/css/zenburn.css"/>
+    <script>
+        document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <div class="reveal">
+        <div class="slides">
+
+
+            <!-- Intro -->
+            <section>
+                <h1>MongoDB</h1>
+                <h3>Fast and painless scaling</h3>
+                <aside class="notes">
+                    What mongodb is
+                    <br/>
+                    What you can use it for
+                    <br/>
+                    Clear up misconceptions
+                    <br/>
+                    Show how it makes life easy at scale
+                </aside>
+            </section>
+
+
+            <!-- About Me -->
+            <section>
+                <h2>Marc Qualie</h2>
+                <br/>
+                Software Engineer
+                <br/>
+                Performance Horizon
+                <br/>
+                @marcqualie
+            </section>
+
+
+            <!-- Not MySQL -->
+            <section>
+                <h2>MongoDB !== MySQL</h2>
+                <aside class="notes">
+                </aside>
+            </section>
+
+
+            <!-- What is it then? -->
+            <section>
+                <section>
+                    <h2>What is it then?</h2>
+                </section>
+                <section>
+                    <ul>
+                        <li>Document Store</li>
+                        <li>Schemaless</li>
+                        <li>High Availability</h3>
+                        <li>Auto-sharding</li>
+                    </ul>
+                </section>
+                <aside class="notes">
+                    Document Store: BSON: OO, Maps to language objects
+                    <br/>
+                    Schemeless: Store any kind of object in raw format
+                    <br/>
+                    HA: Automatic failover, CAP = AP
+                    <br/>
+                    Horizontal Scaling: Linear Shard performance
+                </aside>
+            </section>
+
+
+            <!-- Bad Reputation -->
+            <section>
+                <section>
+                    <h2>Bad Reputation</h2>
+                    <img src="img/backup-data-loss.jpg" alt=""/>
+                </section>
+                <section>
+                    <img src="img/global-lock.jpg" alt=""/>
+                </section>
+                <section>
+                    <ul>
+                        <li>Data Loss</li>
+                        <li>Slow when hitting disk</li>
+                        <li>Global Write lock</li>
+                    </ul>
+                    <aside class="notes">
+                        MongoDB known for data loss, slow speeds when going to disk
+                    </aside>
+                </section>
+            </section>
+
+
+            <!-- Use Cases -->
+            <section>
+                <h2>When to use it?</h2>
+                <ul>
+                    <li class="fragment">Logging</li>
+                    <li class="fragment">Caching</li>
+                    <li class="fragment">AD Hoc Reporting</li>
+                    <li class="fragment">Data Analysis</li>
+                    <li class="fragment">Development Speed</li>
+                    <li class="fragment">Easy Scalabiity</li>
+                </ul>
+            </section>
+
+
+            <!-- Scaling -->
+            <section>
+                <h2>How does it Scale?</h2>
+                <ul>
+                    <li class="fragment">Read: Replica Sets</li>
+                    <li class="fragment">Write: Sharding</li>
+                    <li class="fragment">Online Indexing / Schema Updates</li>
+                    <li class="fragment">Rolling Upgrades</li>
+                    <li class="fragment">Automatic Failover</li>
+                    <li class="fragment">Development Time</li>
+                </ul>
+                <aside class="notes">
+                    Schema: Since it's schemaless the application can handle renaming fields as a background process (check up on this)
+                    <br/>
+                    Development time: Easy to forget but when scaling apps, development / infrastructure turnaround is important
+                </aside>
+            </section>
+
+
+            <!-- Indexes -->
+            <section>
+                <section>
+                    <h2>Indexes</h2>
+                </section>
+                <section>
+                    _id is always indexed
+                    <br/><br/>
+                    Max. 64 Indexes per collection
+                    <br/><br/>
+                    Indexes must fit in RAM
+                </section>
+                <section>
+                    Simple
+                    <br/>
+                    Compound
+                    <br/>
+                    Sparse
+                    <br/>
+                    Unique
+                    <br/>
+                    TTL
+                </section>
+                <section>
+                    Hashed
+                    <br/>
+                    Geospatial
+                    <br/>
+                    Geohaystack
+                    <br/>
+                    Text
+                </section>
+            </section>
+
+
+             <!-- Sharding -->
+            <section>
+                <section>
+                    <h2>Sharding</h2>
+                </section>
+                <section>
+                    <img src="img/sharding.png" style="background:#fff" alt=""/>
+                </section>
+                <section>
+                    <img src="img/sharding-appserver.png" style="background:#fff" alt=""/>
+                </section>
+            </section>
+
+
+            <!-- Replica Sets -->
+            <section>
+                <section>
+                    <h2>Replica Sets</h2>
+                </section>
+                <section>
+                    Primary
+                    <br/>
+                    Secondary
+                    <br/>
+                    Arbiter
+                </section>
+                <section>
+                    12 Members
+                    <br/>
+                    7 Voting Members
+                </section>
+                <section>
+                    <pre><code data-trim class="javascript">
+                        rs.initiate();
+                    </code></pre>
+                    <pre class="fragment"><code data-trim class="javascript">
+rs.initiate({
+    "_id": "set1",
+    "members": [{
+        "_id": 0,
+        "host": "node1"
+    }]
+});
+                    </code></pre>
+                </section>
+                <section>
+                    <pre><code data-trim class="javascript">
+                        rs.add('node2');
+                    </code></pre>
+                    <pre><code data-trim class="javascript">
+                        rs.add('10.0.128.2');
+                    </code></pre>
+                    <pre><code data-trim class="javascript">
+                        rs.add('node4:27117');
+                    </code></pre>
+                    <pre><code data-trim class="javascript">
+                        rs.addArb('arb2');
+                    </code></pre>
+                    <aside class="notes">
+                        Maximum of 12 nodes per replica set
+                        <br/>
+                        Upto 7 members can vote
+                    </aside>
+                </section>
+                <section>
+                    <h2>Check Replica Status</h2>
+                    <pre><code data-trim class="javascript">
+                        rs.status();
+                    </code></pre>
+                    <pre><code data-trim class="json">
+{
+    "set" : "set1",
+    "date" : ISODate("2013-08-17T16:18:34Z"),
+    "myState" : 1,
+    "members" : [
+        {
+            "_id" : 0,
+            "name" : "node1:27017",
+            "health" : 1,
+            "state" : 1,
+            "stateStr" : "PRIMARY",
+            "uptime" : 9248926,
+            "optime" : {
+                "t" : 1376756314,
+                "i" : 1
+            },
+            "optimeDate" : ISODate("2013-08-17T16:18:34Z"),
+            "self" : true
+        },
+        {
+            "_id" : 1,
+            "name" : "node2:27017",
+            "health" : 1,
+            "state" : 2,
+            "stateStr" : "SECONDARY",
+            "uptime" : 6142687,
+            "optime" : {
+                "t" : 1376756432,
+                "i" : 1
+            },
+            "optimeDate" : ISODate("2013-08-17T16:20:32Z"),
+            "lastHeartbeat" : ISODate("2013-08-17T16:20:33Z"),
+            "lastHeartbeatRecv" : ISODate("2013-08-17T16:20:34Z"),
+            "pingMs" : 0,
+            "syncingTo" : "node1:27017"
+        },
+        {
+            "_id" : 2,
+            "name" : "node3:27017",
+            "health" : 1,
+            "state" : 7,
+            "stateStr" : "ARBITER",
+            "uptime" : 9248955,
+            "lastHeartbeat" : ISODate("2013-08-17T16:20:33Z"),
+            "lastHeartbeatRecv" : ISODate("1970-01-01T00:00:00Z"),
+            "pingMs" : 0
+        }
+    ]
+}
+                    </code></pre>
+                </section>
+                <section>
+                    <img src="img/replica-set.png" style="background:#fff" alt=""/>
+                </section>
+                <section>
+                    <img src="img/replica-set-heartbeat.png" style="background:#fff" alt=""/>
+                </section>
+                <section>
+                    <img src="img/replica-set-arbiter.png" style="background:#fff" alt=""/>
+                </section>
+            </section>
+
+
+            <!-- Failover -->
+            <section>
+                <section>
+                    <h2>Failover</h2>
+                </section>
+                <section>
+                    <img src="img/failover.png" style="background:#fff" alt=""/>
+                </section>
+                <section>
+                    <img src="img/failover-arbiter.png" style="background:#fff" alt=""/>
+                </section>
+            </section>
+
+
+            <!-- Getting Started -->
+            <section>
+                <h2>Quick Start</h2>
+                <ul>
+                    <li>http://docs.mongodb.org/manual/</li>
+                    <li>MongoHQ</li>
+                    <li>MongoLab</li>
+                </ul>
+            </section>
+
+
+            <!-- Web Scale -->
+            <section>
+                <img src="img/web-scale.jpg" alt=""/>
+            </section>
+
+
+            <!-- Questions -->
+            <section>
+                <h2>Questions?</h2>
+                <br/><br/>
+                @marcqualie
+            </section>
+
+
+        </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            theme: Reveal.getQueryHash().theme,
+            transition: Reveal.getQueryHash().transition || 'default',
+            dependencies: [
+                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+            ]
+        });
+    </script>
+
+</body>
+</html>
