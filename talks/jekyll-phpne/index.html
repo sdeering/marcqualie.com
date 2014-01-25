@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Jekyll: PHP Isn't Always The Answer</title>
+  <meta name="description" content=""/>
+  <meta name="author" content="Marc Qualie"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <link rel="stylesheet" href="css/reveal.min.css"/>
+  <link rel="stylesheet" href="css/theme/sky.css" id="theme"/>
+  <script>
+    document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <style>
+    .reveal section img.noborder {
+      border: none;
+      box-shadow: none;
+      background: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+
+      <section>
+        <img src="img/jekyll.png" class="noborder" alt=""/>
+      </section>
+
+
+      <!-- Intro -->
+      <section>
+        <h1>Jekyll</h1>
+        <h3>PHP Isn't Always the answer</h3>
+        <aside class="notes">
+        </aside>
+      </section>
+
+
+      <!-- What is Jekyll -->
+      <section>
+        <section>
+          <h3>Ruby Gem</h3>
+          <br/>
+          <h3>Simple</h3>
+          <br/>
+          <h3>Static HTML</h3>
+          </br>
+          <h3>Blog-aware</h3>
+        </section>
+
+        <section>
+          <h2>Secure</h2>
+          <img src="img/secure.jpg" alt=""/>
+        </section>
+
+        <section>
+          <h2>Fast</h2>
+          <img src="img/fast-topgear.jpg" alt=""/>
+        </section>
+
+        <section>
+          <h2>Portable</h2>
+          <img src="img/portablepc.jpg" alt=""/>
+        </section>
+      </section>
+
+
+      <!-- Use Cases -->
+      <section>
+        <h4>Blogs</h4>
+        <h4>Marketting Sites</h4>
+        <h4>Single Page Applications</h4>
+        <h4>Instant Web Server</h4>
+        <h4 class="fragment roll-in">.. anything</h4>
+      </section>
+
+
+      <!-- Examples -->
+      <section>
+        <section>
+          <h4>Obama Campaign</h4>
+          <h4>The PHP League</h4>
+          <h4>PHP The Right Way</h4>
+          <h4>London Midland Giving</h4>
+          <h4 class="fragment roll-in">PHP Noth East</h4>
+        </section>
+
+
+        <!-- Obama Campaign -->
+        <section>
+          <h2>Obama Campaign</h2>
+          <br/>
+          <h4>81,548,259 pageviews</h4>
+          <h4>17,807,917 unique visitors</h4>
+          <h4>Hosted on Amazon S3 + Akamai CDN</h4>
+          <br/>
+          <small><a href="http://thephpleague.com">http://thephpleague.com</a></small>
+        </section>
+
+
+        <!-- The PHP League -->
+        <section>
+          <h2>The PHP League</h2>
+          <br/>
+          <h4>No plugins</h4>
+          <h4>List of projects in projects.yml</h4>
+          <h4>Generated packages.json for JSONP</h4>
+          <br/>
+          <small><a href="http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/">http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/</a></small>
+        </section>
+
+        <!-- London Midland Giving -->
+        <section>
+          <h2>London Midland Giving</h2>
+          <br/>
+          <h4>Hosted on Amazon S3</h4>
+          <h4>"git push" deployments</h4>
+          <h4>API data with backbone.js</h4>
+          <br/>
+          <small><a href="http://londonmidlandgiving.com">londonmidlandgiving.com</a></small>
+        </section>
+      </section>
+
+
+      <!-- Out of the box -->
+      <section>
+        <h4>Pagination</h4>
+        <h4>Custom Permalink Structure</h4>
+        <h4>Syntax Highlighting</h4>
+        <h4>Markdown / Textile Posts</h4>
+        <h4>Custom YAML Data Files</h4>
+      </section>
+
+
+      <!-- Editing -->
+      <section>
+        <h2>Editing</h2>
+        <h3><a href="http://prose.io">prose.io</a></h3>
+      </section>
+
+
+      <!-- Plugins -->
+      <section>
+        <section>
+          <h2>Plugins</h2>
+          <h4>Writting in Ruby</h4>
+          <h4></h4>
+        </section>
+        <section>
+          <h3>jekyll-assets</h3>
+          <h4>Rails pipline functionality</h4>
+          <h4>Minification</h4>
+          <h4>Cache busting</h4>
+          <h4>Easy CDN Support</h4>
+          <br/>
+          <a href="https://github.com/ixti/jekyll-assets">https://github.com/ixti/jekyll-assets</a>
+        </section>
+        <section>
+          <a href="http://jekyllrb.com/docs/plugins/">jekyllrb.com/docs/plugins/</a>
+        </section>
+      </section>
+
+
+      <!-- Resources -->
+      <section>
+        <h5>How to blog like a hacker</h5>
+        <small><a href="http://www.slideshare.net/bradringel/jekyll-starter">http://www.slideshare.net/bradringel/jekyll-starter</a></small>
+
+        <br/><br/>
+        <h5>Blogging in Jekyll</h5>
+        <small><a href="http://www.slideshare.net/mackato/blogging-on-jekyll">http://www.slideshare.net/mackato/blogging-on-jekyll?from_search=3</a></small>
+      </section>
+
+
+      <!-- About Me -->
+      <section>
+        Twitter / Github / <strong>@marcqualie</strong><br/>
+        <br/>
+        <a href="http://marcqualie.com">marcqualie.com</a>
+      </section>
+
+
+      <!-- Questions -->
+      <section>
+        <h2>Questions?</h2>
+        <img src="img/confused.jpg" alt=""/>
+      </section>
+
+
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+
+  <script>
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      theme: Reveal.getQueryHash().theme,
+      transition: Reveal.getQueryHash().transition || 'default',
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+    });
+  </script>
+
+</body>
+</html>
