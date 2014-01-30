@@ -11,7 +11,7 @@
   forks: 4
   
 - name: StatsD PHP Library
-  link: https://github.com/php-loep/statsd
+  link: https://github.com/thephpleague/statsd
   description: A library for working with StatsD
   stars: 41
   forks: 2
