@@ -1,23 +1,23 @@
 - name: Homebrew Nginx
   link: https://github.com/marcqualie/homebrew-nginx
   description: Community Nginx install for Homebrew with lots of added modules and custom builds
-  stars: 35
-  forks: 21
+  stars: 42
+  forks: 26
 
 - name: Mongo Minify
   link: https://github.com/marcqualie/mongominify
   description: A drop in replacement for the native MongoDB PHP Driver which transparently translates data in an
   stars: 9
   forks: 4
+  
+- name: StatsD PHP Library
+  link: https://github.com/php-loep/statsd
+  description: A library for working with StatsD
+  stars: 41
+  forks: 2
 
 - name: Criterion
   link: https://github.com/romhut/criterion
   description: Criterion is a Continuous Integration app built in PHP using MongoDB. Criterion is very easy to s...
-  stars: 59
+  stars: 58
   forks: 8
-
-- name: StatsD PHP Library
-  link: https://github.com/php-loep/statsd
-  description: A library for working with StatsD
-  stars: 38
-  forks: 3
