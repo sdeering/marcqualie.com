@@ -5,6 +5,8 @@ environment: development
 cdn_host: //d2t499cyah0mck.cloudfront.net
 
 markdown: redcarpet
+redcarpet:
+  extensions: ['tables']
 excerpt_separator: "\n\n"
 pygments: true
 paginate: 5

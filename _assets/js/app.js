@@ -31,3 +31,8 @@ $(function () {
     }
   })
 });
+
+// Markdown does not add classes to elements so this is to get bootstrap styles
+$(function () {
+  $('table:not(.table').addClass('table table-bordered table-striped');
+});
