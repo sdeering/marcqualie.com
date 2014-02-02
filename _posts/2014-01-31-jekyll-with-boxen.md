@@ -26,7 +26,7 @@ class projects::jekyll {
 }
 ```
 
-I could have went the route of building a custom puppet module but this way if way more straight forward and easier to work with.
+I could have gone the route of building a custom puppet module but this way is way more straight forward and easier to work with.
 Each of these settings should be straight forward to anyone who's set up a boxen project before but for those who haven't I will explain what each one does.
 
 setting     | description
@@ -75,6 +75,12 @@ nginx::config::logdir | Internal logging path which nginx is setup to use
 @name                 | Name of your project class above
 
 
-Now run the ```boxen``` command to install the project. If everything goes correctly there should be no errors and you will be able to access your new compiled boxen site from the vhost your setup earlier. If you have changed the _config.yml file to have a different destination folder then make sure you set the correct root directive in your template instead of _site.
+Now run the ```boxen``` command to install the project.
+Once that completes you should compile your site if you haven't already using ```jekyll build```.
+You can watch for file changes and auto build using the ```--watch``` flag.
+There is more information on [Jekyll usage](http://jekyllrb.com/docs/usage/) in the documentation.
+If everything goes correctly there should be no errors and you will be able to access your new compiled boxen site from the vhost you setup earlier (jekyll.dev).
+If you have changed the _config.yml file to have a different destination folder then make sure you set the correct root directive in your template instead of _site.
 
-That is all you should need to get a default install of Jekyll running. If you run into any troubles or have any questions then please contact me in the comments below.
+That is all you should need to get a default install of Jekyll running.
+If you run into any troubles or have any questions then please contact me in the comments below.
