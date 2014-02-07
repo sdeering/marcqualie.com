@@ -25,6 +25,8 @@ assets:
    - _assets/css
    - _assets/js
    - _assets/images
+   - _assets/vendor/font-awesome/fonts
+   - _assets/vendor
 
 # Analytics
 analytics:

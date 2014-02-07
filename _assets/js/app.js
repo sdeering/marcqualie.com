@@ -1,5 +1,5 @@
-//= require jquery-1.10.2.js
-//= require bootstrap.js
+//= require jquery/jquery.js
+//= require bootstrap/dist/js/bootstrap.js
 //= require_self
 
 // Disqus
