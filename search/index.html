@@ -4,18 +4,17 @@ title: "Search Marc Qualie's Network"
 layout: default
 canonical: /search
 ---
-<div class="container">
 
-  <form action="/search" id="search-form-full">
-    <div class="input-group">
-      <span class="input-group-addon"><span class="icon-search"></span></span>
-      <input type="text" id="search-query-full" class="form-control" name="q" placeholder="Search" autocomplete="off" value=""/>
-    </div>
-  </form>
-
-  <div id="search-results-full">
-    <div class="entries search-results"></div>
+<form action="/search" id="search-form-full">
+  <div class="input-group">
+    <span class="input-group-addon"><span class="fa fa-search"></span></span>
+    <input type="text" id="search-query-full" class="form-control" name="q" placeholder="Search" autocomplete="off" value=""/>
   </div>
+</form>
+
+<div id="search-results-full">
+  <div class="entries search-results"></div>
+</div>
 
 {% raw %}
 <!-- Search Template -->
@@ -32,6 +31,5 @@ canonical: /search
 </script>
 {% endraw %}
 
-  <br/><br/>
+<br/><br/>
 
-</div>
