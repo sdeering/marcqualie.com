@@ -21,7 +21,6 @@ lunr_search:
 
 # Assets
 assets:
-  cache: true
   sources:
    - _assets/css
    - _assets/js
