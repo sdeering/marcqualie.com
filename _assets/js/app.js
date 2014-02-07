@@ -23,6 +23,7 @@ $(function () {
     if (
         href.indexOf('http://marcqualie.com') === -1
      && href.indexOf('https://marcqualie.com') === -1
+     && href.indexOf('http://marcqualie.dev') === -1
      && href.indexOf('/') !== 0
      && href.indexOf('javascript:') !== 0
      && href.indexOf('#') !== 0
