@@ -10,6 +10,7 @@ redcarpet:
 excerpt_separator: "\n\n"
 pygments: true
 paginate: 5
+paginate_path: /posts/:num/
 relative_permalinks: false
 permalink: /:year/:month/:title
 paginate_path: "posts/:num"
