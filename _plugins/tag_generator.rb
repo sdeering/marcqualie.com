@@ -8,7 +8,9 @@ module Jekyll
       self.process(@name)
       self.read_yaml(File.join(base, '_layouts'), 'tag.html')
       self.data['tag'] = tag
+      self.data['layout'] = "tag"
       self.data['canonical'] = "/tag/#{tag.downcase.gsub(' ', '-')}"
+      self.data['permalink'] = "#{self.data['canonical']}/"
       self.data['description'] = "Blog posts tagged &ldquo;#{tag}&rdquo;"
       self.data['title'] = "#{tag} Posts on Marc Qualie's Blog"
     end
