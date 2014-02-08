@@ -8,18 +8,8 @@
 //= require about.css
 //= require_self
 
-@media (min-width: 1200px) {
-    body {
-        padding-top: 70px;
-    }
-    .navbar {
-        position: fixed;
-        right: 0;
-        left: 0;
-        top: 0;
-        z-index: 1030;
-        border-radius: 0;
-    }
+body {
+    padding-top: 60px;
 }
 body > .container {
     min-height: 600px;
