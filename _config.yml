@@ -15,7 +15,10 @@ relative_permalinks: false
 permalink: /:year/:month/:title
 paginate_path: "posts/:num"
 exclude:
- - import.php
+ - bower.json
+ - Gemfile
+ - Gemfile.lock
+ - Makefile
 
 # Search
 lunr_search:
