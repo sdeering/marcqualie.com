@@ -10,10 +10,15 @@ redcarpet:
 excerpt_separator: "\n\n"
 pygments: true
 paginate: 5
+paginate_path: /posts/:num/
+relative_permalinks: false
 permalink: /:year/:month/:title
 paginate_path: "posts/:num"
 exclude:
- - import.php
+ - bower.json
+ - Gemfile
+ - Gemfile.lock
+ - Makefile
 
 # Search
 lunr_search:
@@ -25,6 +30,8 @@ assets:
    - _assets/css
    - _assets/js
    - _assets/images
+   - _assets/vendor/font-awesome/fonts
+   - _assets/vendor
 
 # Analytics
 analytics:

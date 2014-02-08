@@ -1,0 +1,8 @@
+{
+  "name": "marcqualie.com",
+  "version": "0.1.0",
+  "dependencies": {
+    "bootstrap": "3.1.0",
+    "font-awesome": ">= 4.0.3"
+  }
+}

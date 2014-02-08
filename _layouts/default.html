@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>{{ page.title }}</title>
-    {% if post.excerpt %}<meta name="description" content="{{ post.excerpt | strip_html }}"/>{% elsif page.description %}<meta name="description" content="{{ page.description }}"/>{% else %}<meta name="description" content="{{ site.description }}"/>{% endif %}
-    {% if page.canonical %}<link rel="canonical" href="{{ site.url }}{{ page.canonical }}"/>{% else %}<link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}"/>{% endif %}
-    <link ref="dns-prefetch" href="{{ site.cdn_host }}"/>
-    <link rel="icon" type="image/png" href="/favicon.png"/>
-    <link rel="alternate" type="application/rss+xml" title="My Personal Tech Blog" href="{{ site.url }}/feed.xml"/>
-    <link rel="stylesheet" href="{{ site.cdn_host }}{% asset_path app.css %}"/>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ page.title }}</title>
+  {% if post.excerpt %}<meta name="description" content="{{ post.excerpt | strip_html }}"/>{% elsif page.description %}<meta name="description" content="{{ page.description }}"/>{% else %}<meta name="description" content="{{ site.description }}"/>{% endif %}
+  {% if page.canonical %}<link rel="canonical" href="{{ site.url }}{{ page.canonical }}"/>{% else %}<link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}"/>{% endif %}
+  <link ref="dns-prefetch" href="{{ site.cdn_host }}"/>
+  <link rel="icon" type="image/png" href="/favicon.png"/>
+  <link rel="alternate" type="application/rss+xml" title="My Personal Tech Blog" href="{{ site.url }}/feed.xml"/>
+  <link rel="stylesheet" href="{{ site.cdn_host }}{% asset_path app.css %}"/>
 </head>
 <body>
 
 <!-- Navigation -->
-<div class="navbar navbar-static-top navbar-inverse">
-    <div class="container">
-      <a href="/" title="Marc Qualie" class="navbar-brand">Marc <strong>Qualie</strong></a>
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+<div class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <div class="nav-collapse collapse navbar-responsive-collapse">
-        <ul class="nav navbar-nav">
-          <li{% if page.class == 'posts' %} class="active"{% endif %}><a href="/" title="Marc Qualie's Latest Posts">Blog</a></li>
-          <li{% if page.class == 'projects' %} class="active"{% endif %}><a href="/projects/" title="Marc Qualie's Projects">Projects</a></li>
-          <li{% if page.class == 'about' %} class="active"{% endif %}><a href="/about/" title="About Marc Qualie">About</a></li>
-          <li><a href="https://twitter.com/marcqualie" title="Follow Marc Qualie on Twitter" target="_blank"><span class="icon-twitter"></span> Follow Me</a></li>
-          <li><a href="https://github.com/marcqualie" title="Fork Marc Qualie on Github" target="_blank"><span class="icon-github"></span> Fork Me</a></li>
-        </ul>
-        <ul class="nav navbar-nav pull-right">
-          <li><a href="/feed.xml"><span class="icon-rss"></span> Subscribe</a></li>
-          <li><a href="/search"><span class="icon-search"></span> Search</a></li>
-        </ul>
-      </div>
+      <a class="navbar-brand" href="{{ site.url }}" title="Marc Qualie">Marc <strong>Qualie</strong></a>
     </div>
+    <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li{% if page.class == 'posts' %} class="active"{% endif %}><a href="/" title="Marc Qualie's Latest Posts">Blog</a></li>
+        <li{% if page.class == 'projects' %} class="active"{% endif %}><a href="/projects/" title="Marc Qualie's Projects">Projects</a></li>
+        <li{% if page.class == 'about' %} class="active"{% endif %}><a href="/about/" title="About Marc Qualie">About</a></li>
+        <li><a href="https://twitter.com/marcqualie" title="Follow Marc Qualie on Twitter" target="_blank"><span class="fa fa-twitter"></span> Follow Me</a></li>
+        <li><a href="https://github.com/marcqualie" title="Fork Marc Qualie on Github" target="_blank"><span class="fa fa-github"></span> Fork Me</a></li>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="/feed.xml"><span class="fa fa-rss"></span> Subscribe</a></li>
+        <li><a href="/search"><span class="fa fa-search"></span> Search</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <!-- Main Page Content -->
@@ -64,9 +67,9 @@
       </div>
 
       <div class="col col-lg-9 text-right">
-        <a href="https://www.digitalocean.com/?refcode=4f6e23440060" target="_blank" title="Digital Ocean"><span class="glyphicon glyphicon-share"></span> Hosted on Digital Ocean</a>
+        <a href="https://www.digitalocean.com/?refcode=4f6e23440060" target="_blank" title="Digital Ocean"><span class="fa fa-cloud"></span> Hosted on Digital Ocean</a>
         &nbsp; &nbsp; &nbsp;
-        <a href="https://plus.google.com/107346357165350603625?rel=author">Google+</a>
+        <a href="https://plus.google.com/107346357165350603625?rel=author"><span class="fa fa-google-plus"></span> Google+</a>
       </div>
 
     </div>
