@@ -3,12 +3,12 @@ title: Jekyll with Boxen
 layout: post
 thumb: boxen.png
 tags:
-  - Boxen
-  - Jekyll
-  - Github
+- Boxen
+- Jekyll
+- Github
 ---
 Not only does Jekyll power this blog but it has been one of the main tools I use on a daily basis for almost 2 months now.
-Due to it's growing role in our company I was starting to get fed up with having to manually pull down repositories and ask other team members to do the same, especially when all of our ruby projects are managed via [Boxen](https://boxen.github.com). This post is to share my knowledge of how I was able to very easily modify a boxen project to work with an install of Jekyll instead of the default ruby setup.
+Due to it's growing role in our company I was starting to get fed up with having to manually pull down repositories and ask other team members to do the same, especially when all of our ruby projects are managed via [Boxen](https://boxen.github.com). This post is to share my knowledge of how I was able to very easily modify a boxen project to work with an install of Jekyll instead of the default ruby setup. 
 
 To start with, you're going to want to navigate to your boxen repo directory which is installed at ```/opt/boxen/repo``` by default.
 Once there, create a new project in ```modules/projects/manifests``` called ```jekyll.pp```.
