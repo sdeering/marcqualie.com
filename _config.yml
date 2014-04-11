@@ -2,7 +2,7 @@ name: "Marc Qualie's Blog"
 description: "My personal tech blog and insights into the world"
 url: "http://marcqualie.com"
 environment: development
-cdn_host: //cdn.marcqualie.com
+cdn_host:
 
 markdown: redcarpet
 redcarpet:
