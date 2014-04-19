@@ -27,8 +27,10 @@ lunr_search:
 # Assets
 assets:
   sources:
-   - _assets/css
-   - _assets/js
+   - _assets/stylesheets
+   - _assets/javascripts
+   - _assets/vendor/bootstrap-sass-official/vendor/assets/stylesheets
+   - _assets/vendor/bootstrap-sass-official/vendor/assets/javascripts
    - _assets/images
    - _assets/vendor/font-awesome/fonts
    - _assets/vendor
