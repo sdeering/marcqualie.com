@@ -2,32 +2,32 @@
 layout: default
 ---
 
-<div class="blog-post margin-bottom-20">
 
-  <div class="page-header text-center">
-    <h2><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h2>
-  </div>
+<div class="page-header">
+  <h2><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h2>
+</div>
 
-  <div class="content">
+<div class="content">
 {% if page.thumb %}
-    <img src="{{ site.cdn_host }}{{ page.thumb | asset_path }}" alt="" class="pull-left thumbnail"/>
+  <img src="{{ site.cdn_host }}{{ page.thumb | asset_path }}" alt="" class="pull-left thumbnail"/>
 {% endif %}
-    {{ content }}
-  </div>
+  {{ content }}
+</div>
 
-  <div class="info">
-    <div class="tags">
+<br/>
+<div class="date">
+  Posted <strong>{{ page.date | date_to_string }}</strong> by <a href="/" title="Marc Qualie">Marc Qualie</a>
+</div>
+
+<br/>
+<div class="tags">
 {% for tag in page.tags %}
-      <a href="/tag/{{ tag | tag_url }}" class="label">{{ tag }}</a>
+  <a href="/tag/{{ tag | tag_url }}" class="label label-primary" title="{{ tag }} Posts"><span class="fa fa-tag"></span> {{ tag }}</a>
 {% endfor %}
-    </div>
-    <div class="date">
-      Posted <strong>{{ page.date | date_to_string }}</strong> by <strong>Marc Qualie</strong>
-    </div>
-  </div>
 </div>
 
 <!-- Disqus Comments -->
+<br/><br/>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_url = 'http://marcqualie.com{{ page.url }}';
