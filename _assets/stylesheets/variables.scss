@@ -1,9 +1,14 @@
 $font-size-base: 16px;
-$border-radius-base: 0.1875em;
+$font-family-sans-serif: "Titillium Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$border-radius-base: 3px;
 $border-radius-large: $border-radius-base;
 $border-radius-small: $border-radius-base;
 
 // Navbar
+$navbar-height: 47px;
+$navbar-default-bg: #f7f7f7;
+$navbar-default-color: #555;
+$navbar-default-link-active-bg: transparent;
 $navbar-inverse-bg: #333;
 $navbar-inverse-color: rgba(255, 255, 255, 0.7);
 $navbar-inverse-link-active-bg: transparent;

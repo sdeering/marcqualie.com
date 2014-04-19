@@ -8,21 +8,23 @@
   {% if page.canonical %}<link rel="canonical" href="{{ site.url }}{{ page.canonical }}"/>{% else %}<link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}"/>{% endif %}
   <link rel="icon" type="image/png" href="/favicon.png"/>
   <link rel="alternate" type="application/rss+xml" title="My Personal Tech Blog" href="{{ site.url }}/feed.xml"/>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Titillium+Web:400,700"/>
   <link rel="stylesheet" href="{{ site.cdn_host }}{% asset_path app.css %}"/>
 </head>
 <body>
 
 <!-- Navigation -->
-<div class="navbar navbar-fixed-top navbar-inverse">
+<div class="navbar navbar-fixed-top navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
+      <a href="/" class="avatar"><img src="{% asset_path marcqualie.jpg %}" alt=""/></a>
+      <h1 class="navbar-brand"><a href="/" title="Marc Qualie">Marc <strong>Qualie</strong></a></h1>
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <h1 class="navbar-brand"><a href="/" title="Marc Qualie">Marc <strong>Qualie</strong></a></h1>
     </div>
     <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -35,10 +37,10 @@
           <input class="form-control" name="q" value="" placeholder="Search"/>
           <span class="fa fa-search"></span>
         </div>
-        <a class="btn btn-default" href="https://twitter.com/marcqualie" title="Follow Marc Qualie on Twitter" target="_blank"><span class="fa fa-twitter"></span></a>
-        <a class="btn btn-default" href="https://github.com/marcqualie" title="Fork Marc Qualie on Github" target="_blank"><span class="fa fa-github"></span></a>
-        <a class="btn btn-default" href="https://plus.google.com/+marcqualie" title="Follow Marc Qualie on Google+" target="_blank"><span class="fa fa-google-plus"></span></a>
-        <a class="btn btn-default" href="/feed.xml"><span class="fa fa-rss"></span></a>
+        <a class="btn btn-default btn-twitter" href="https://twitter.com/marcqualie" title="Follow Marc Qualie on Twitter" target="_blank"><span class="fa fa-twitter"></span></a>
+        <a class="btn btn-default btn-github" href="https://github.com/marcqualie" title="Fork Marc Qualie on Github" target="_blank"><span class="fa fa-github"></span></a>
+        <a class="btn btn-default btn-google-plus" href="https://plus.google.com/+marcqualie" title="Follow Marc Qualie on Google+" target="_blank"><span class="fa fa-google-plus"></span></a>
+        <a class="btn btn-default btn-rss" href="/feed.xml"><span class="fa fa-rss"></span></a>
       </form>
     </div>
   </div>
