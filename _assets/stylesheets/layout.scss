@@ -1,20 +1,33 @@
 body {
-    padding-top: 60px;
+  padding: 0;
+  background: #333;
 }
-body > .container {
-    min-height: 600px;
+.page-content {
+  padding-top: 63px;
+  background: #fff;
 }
-body > .container.spacer-top {
-    padding-top: 20px;
+
+/* Footer */
+.footer {
+  border-top: 1px solid #999;
+  padding: 14px;
+  color: #ccc;
+  & a {
+    color: inherit;
+    @include transition(color .2s);
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
 }
-body > .container.spacer-top-double {
-    padding-top: 40px;
-}
-.margin-bottom-20 {
-    margin-bottom: 20px;
-}
-a {
-}
-h1, h2, h3, h4, h5, h6 {
-    text-rendering: optimizeLegibility;
+@media (max-width: 991px) {
+  .footer {
+    & [class^="col"] {
+      text-align: center;
+    }
+    & [class^="col"]:last-child {
+      margin-top: 15px;
+    }
+  }
 }

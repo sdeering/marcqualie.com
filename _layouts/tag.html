@@ -2,31 +2,39 @@
 layout: default
 published: true
 ---
-{% for post in site.posts %}
-{% for tag in post.tags %}
-{% if tag == page.tag %}
-  <br/>
-  <div class="post">
-    <h2 class="title">
-      <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </h2>
-    <div class="snippet">
-      {{ post.excerpt }}
-    </div>
-    <div class="clearfix">
-      <div class="pull-left">
-        <strong><span class="fa fa-calendar"></span> {{ post.date | date_to_string }}</strong>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    {% for post in site.posts %}
+    {% for tag in post.tags %}
+    {% if tag == page.tag %}
+      <br/>
+      <div class="post">
+        <h2 class="title">
+          <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </h2>
+        <div class="snippet">
+          {{ post.excerpt }}
+        </div>
+        <div class="clearfix">
+          <div class="pull-left">
+            <strong><span class="fa fa-calendar"></span> {{ post.date | date_to_string }}</strong>
+          </div>
+          <div class="pull-right">
+    {% for tag in post.tags %}
+    {% if forloop.index < 4 %}
+            <a href="/tag/{{ tag | tag_url }}" class="label label-{% if forloop.index == 1 %}success{% else %}primary{% endif %}" title="{{ tag }} Posts"><span class="fa fa-tag"></span> {{ tag }}</a>
+    {% endif %}
+    {% endfor %}
+          </div>
+        </div>
       </div>
-      <div class="pull-right">
-{% for tag in post.tags %}
-{% if forloop.index < 4 %}
-        <a href="/tag/{{ tag | tag_url }}" class="label label-{% if forloop.index == 1 %}success{% else %}primary{% endif %}" title="{{ tag }} Posts"><span class="fa fa-tag"></span> {{ tag }}</a>
-{% endif %}
-{% endfor %}
-      </div>
+      <br/>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
     </div>
   </div>
-  <br/>
-{% endif %}
-{% endfor %}
-{% endfor %}
+</div>
+
+<br/><br/>

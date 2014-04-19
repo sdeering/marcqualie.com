@@ -3,7 +3,7 @@
     padding-left: 50px;
   }
   & a {
-    @include transition(color .1s);
+    @include transition(color .2s);
   }
   & .avatar {
     position: absolute;
