@@ -1,0 +1,31 @@
+.post-container {
+
+  & .post-title {
+
+  }
+
+  & .post-excerpt {
+    text-align: justify;
+  }
+
+  & .post-details {
+
+    @include clearfix();
+    @include transition(opacity .4s);
+    opacity: 0.3;
+
+    & .post-date {
+      float: left;
+    }
+
+    & .post-tags {
+      float: right;
+    }
+
+  }
+
+  &:hover .post-details {
+    opacity: 1;
+  }
+
+}

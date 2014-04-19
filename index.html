@@ -7,32 +7,32 @@ layout: default
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
       {% for post in paginator.posts %}
-      <br/>
-      <div class="post">
-        <h2 class="title">
+      <br/><br/>
+      <div class="post-container">
+        <h2 class="post-title">
           <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
         </h2>
-        <div class="snippet">
+        <div class="post-excerpt">
           {{ post.excerpt }}
         </div>
-        <div class="clearfix">
-          <div class="pull-left">
-            <strong><span class="fa fa-calendar"></span> {{ post.date | date_to_string }}</strong>
+        <div class="post-details">
+          <div class="post-date">
+            <span class="fa fa-calendar"></span> {{ post.date | date_to_string }}
           </div>
-          <div class="pull-right">
-          {% for tag in post.tags %}
-            {% if forloop.index < 4 %}
-            <a href="/tag/{{ tag | tag_url }}" class="label label-{% if forloop.index == 1 %}success{% else %}primary{% endif %}" title="{{ tag }} Posts"><span class="fa fa-tag"></span> {{ tag }}</a>
-            {% endif %}
-          {% endfor %}
+          <div class="post-tags">
+            <span class="fa fa-tag text-muted"></span>
+            {% for tag in post.tags %}
+              {% if forloop.index < 4 %}
+              <a href="/tag/{{ tag | tag_url }}" title="{{ tag }} Posts">{{ tag }}</a>{% unless forloop.index == 3 %} &middot; {% endunless %}
+              {% endif %}
+            {% endfor %}
           </div>
         </div>
       </div>
-      <br/>
       {% endfor %}
 
       <!-- Pagination links -->
-      <br/>
+      <br/><br/>
       <ul class="pager">
       {% if paginator.previous_page %}
         {% if paginator.previos_page == 1 %}
