@@ -1,49 +1,58 @@
 ---
-layout: default
 title: Marc Qualie's Blog
-class: posts
+layout: default
 ---
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-{% for post in paginator.posts %}
-  <div class="post">
-    <h2 class="title"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
-    <div class="snippet clearfix">
-{% if post.thumb %}
-      <a href="{{ post.url }}" title="{{ post.title }}"><img src="{{ site.cdn_host }}{{ post.thumb | asset_path }}" alt="{{ post.title }}" height="90" class="pull-left" style="margin-right:15px"/></a>
-{% endif %}
-      {{ post.excerpt }}
-    </div>
-    <div class="clearfix">
-      <div class="pull-left">
-        <span class="label label-default">{{ post.date | date_to_string }}</span>
+      {% for post in paginator.posts %}
+      <br/><br/>
+      <div class="post-container">
+        <h2 class="post-title">
+          <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </h2>
+        <div class="post-excerpt">
+          {{ post.excerpt }}
+        </div>
+        <div class="post-details">
+          <div class="post-date">
+            <span class="fa fa-calendar"></span> {{ post.date | date_to_string }}
+          </div>
+          <div class="post-tags">
+            <span class="fa fa-tag text-muted"></span>
+            {% for tag in post.tags %}
+              {% if forloop.index < 4 %}
+              <a href="/tag/{{ tag | tag_url }}" title="{{ tag }} Posts">{{ tag }}</a>{% unless forloop.index == 3 %} &middot; {% endunless %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
       </div>
-      <div class="pull-right">
-{% for tag in post.tags %}
-{% if forloop.index < 4 %}
-        <a href="/tag/{{ tag | tag_url }}" class="label label-{% if forloop.index == 1 %}success{% else %}info{% endif %}" title="{{ tag }} Posts">{{ tag }}</a>
-{% endif %}
-{% endfor %}
-        <a href="{{ post.url }}" class="label label-default" title="3 more tags" rel="nofollow">...</a>
-      </div>
+      {% endfor %}
+
+      <!-- Pagination links -->
+      <br/><br/>
+      <ul class="pager">
+      {% if paginator.previous_page %}
+        {% if paginator.previos_page == 1 %}
+        <li class="previous"><a href="/" class="previous">&larr; Newer</a></li>
+        {% else %}
+        <li class="previous"><a href="{{ paginator.previous_page_path }}">&larr; Newer</a></li>
+        {% endif %}
+      {% else %}
+        <li class="previous disabled"><a>&larr; Newer</a></li>
+      {% endif %}
+        <li><span>Page <strong>{{ paginator.page }}</strong> of <strong>{{ paginator.total_pages }}</strong></span></li>
+      {% if paginator.next_page %}
+        <li class="next"><a href="{{ paginator.next_page_path }}">Older &rarr;</a></li>
+      {% else %}
+        <li class="next disabled"><a>Older &rarr;</a></li>
+      {% endif %}
+      </ul>
+
     </div>
   </div>
-{% endfor %}
+</div>
 
-<!-- Pagination links -->
-<ul class="pager">
-{% if paginator.previous_page %}
-  {% if paginator.previos_page == 1 %}
-  <li class="previous"><a href="/" class="previous">&larr; Newer</a></li>
-  {% else %}
-  <li class="previous"><a href="{{ paginator.previous_page_path }}">&larr; Newer</a></li>
-  {% endif %}
-{% else %}
-  <li class="previous disabled"><a>&larr; Newer</a></li>
-{% endif %}
-  <li><span>Page <strong>{{ paginator.page }}</strong> of <strong>{{ paginator.total_pages }}</strong></span></li>
-{% if paginator.next_page %}
-  <li class="next"><a href="{{ paginator.next_page_path }}">Older &rarr;</a></li>
-{% else %}
-  <li class="next disabled"><a>Older &rarr;</a></li>
-{% endif %}
-</ul>
+<br/><br/>

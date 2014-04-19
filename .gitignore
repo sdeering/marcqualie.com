@@ -2,6 +2,3 @@ _site
 _config.development.yml
 import.php
 .jekyll-assets-cache
-
-# Bower Assets
-_assets/vendor

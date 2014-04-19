@@ -6,31 +6,35 @@ permalink: /search/
 canonical: /search/
 ---
 
-<form action="/search" id="search-form-full">
-  <div class="input-group">
-    <span class="input-group-addon"><span class="fa fa-search"></span></span>
-    <input type="text" id="search-query-full" class="form-control" name="q" placeholder="Search" autocomplete="off" value=""/>
-  </div>
-</form>
+<div class="container">
 
-<div id="search-results-full">
-  <div class="entries search-results"></div>
+  <br/><br/>
+  <form action="/search" id="search-form-full">
+    <div class="input-group">
+      <span class="input-group-addon"><span class="fa fa-search"></span></span>
+      <input type="text" id="search-query-full" class="form-control" name="q" placeholder="Search" autocomplete="off" value=""/>
+    </div>
+  </form>
+
+  <div id="search-results-full">
+    <div class="entries search-results"></div>
+  </div>
+
+  {% raw %}
+  <!-- Search Template -->
+  <script id="search-results-full-template" type="text/mustache">
+  {{#entries}}
+  <div class="result clearfix">
+    <div class="meta">
+      <h4><a href="{{ url }}" title="{{ title }}">{{ title }}</a></h4>
+      <p class="body">{{ body }}</p>
+      <a href="{{ url }}" title="{{ title }}"><span>https://marcqualie.com{{ url }}</span></a>
+    </div>
+  </div>
+  {{/entries}}
+  </script>
+  {% endraw %}
+
 </div>
 
-{% raw %}
-<!-- Search Template -->
-<script id="search-results-full-template" type="text/mustache">
-{{#entries}}
-<div class="result clearfix">
-  <div class="meta">
-    <h4><a href="{{ url }}" title="{{ title }}">{{ title }}</a></h4>
-    <p class="body">{{ body }}</p>
-    <a href="{{ url }}" title="{{ title }}"><span>https://marcqualie.com{{ url }}</span></a>
-  </div>
-</div>
-{{/entries}}
-</script>
-{% endraw %}
-
-<br/><br/>
-
+<br/><br/><br/>

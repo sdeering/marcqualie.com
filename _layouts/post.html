@@ -1,34 +1,40 @@
 ---
 layout: default
 ---
+<div class="container spacer-top">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<div class="blog-post margin-bottom-20">
+      <div class="page-header">
+        <h2><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h2>
+      </div>
 
-  <div class="page-header text-center">
-    <h2><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h2>
-  </div>
+      <div class="content">
+      {% if page.thumb %}
+        <img src="{{ site.cdn_host }}{{ page.thumb | asset_path }}" alt="" class="pull-left thumbnail"/>
+      {% endif %}
+        {{ content }}
+      </div>
 
-  <div class="content">
-{% if page.thumb %}
-    <img src="{{ site.cdn_host }}{{ page.thumb | asset_path }}" alt="" class="pull-left thumbnail"/>
-{% endif %}
-    {{ content }}
-  </div>
+      <br/>
+      <div class="date">
+        Posted <strong>{{ page.date | date_to_string }}</strong> by <a href="/" title="Marc Qualie">Marc Qualie</a>
+      </div>
 
-  <div class="info">
-    <div class="tags">
-{% for tag in page.tags %}
-      <a href="/tag/{{ tag | tag_url }}" class="label">{{ tag }}</a>
-{% endfor %}
-    </div>
-    <div class="date">
-      Posted <strong>{{ page.date | date_to_string }}</strong> by <strong>Marc Qualie</strong>
+      <br/>
+      <div class="tags">
+      {% for tag in page.tags %}
+        <a href="/tag/{{ tag | tag_url }}" class="label label-primary" title="{{ tag }} Posts"><span class="fa fa-tag"></span> {{ tag }}</a>
+      {% endfor %}
+      </div>
+
+      <!-- Disqus Comments -->
+      <br/><br/>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_url = 'http://marcqualie.com{{ page.url }}';
+      </script>
+
     </div>
   </div>
 </div>
-
-<!-- Disqus Comments -->
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-  var disqus_url = 'http://marcqualie.com{{ page.url }}';
-</script>
