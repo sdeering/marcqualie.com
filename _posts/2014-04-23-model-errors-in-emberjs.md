@@ -6,15 +6,15 @@ tags:
 - JavaScript
 - Rails
 ---
-Today, I spent longer than I feel comfortable admitting solving a suposedly simple problem in my EmberJS application. Since this particular issue was so frustrating and undocumented I'm going to share my experiences in-case someone else comes across the same hair-pulling nightmare in the future.
+Today, I spent longer than I feel comfortable admitting solving a supposedly simple problem in my EmberJS application. Since this particular issue was so frustrating and undocumented I'm going to share my experiences in case someone else comes across the same hair-pulling nightmare in the future.
 
 ### Back Story
 
-The application in question is a private dashboard system which allows clients to create and manage their own business profiles. It's getting close to launch so I decided it was time to spice up the UI with some nice error messages that are helpful to the user. The idea was to highlight the fields that have errors and display a message underneath explaning why there was an error. In Rails (or any other framework) this would be very easy or even built right into the form helper in some cases. In EmberJS? Seemingly straightforward, but it turned into an afternoon of rabbit holes and head-banging against my desk.
+The application in question is a private dashboard system which allows clients to create and manage their own business profiles. It's getting close to launch so I decided it was time to spice up the UI with some nice error messages that are helpful to the user. The idea was to highlight the fields that have errors and display a message underneath explaining why there was an error. In Rails (or any other framework) this would be very easy or even built right into the form helper in some cases. In EmberJS? Seemingly straightforward, but it turned into an afternoon of rabbit holes and head-banging against my desk.
 
 ### Ember Models
 
-Ember, or rather [Ember Data](http://emberjs.com/api/data/) has error helpers built right into the models. Actually figuring out how to use those helpers is another story all together. I wasn't able to find any tutorials and the API documentation wasn't clear on what to use. There was also no indication as to what formatting errors should be in. The Rails app I was developing against output data in the following format.
+Ember, or rather [Ember Data](http://emberjs.com/api/data/) has error helpers built right into the models. Actually figuring out how to use those helpers is another story altogether. I wasn't able to find any tutorials and the API documentation wasn't clear on what to use. There was also no indication as to what formatting errors should be in. The Rails Application I was developing against output data in the following format:
 
 {% highlight json %}
 {
@@ -65,7 +65,7 @@ end
 
 ### Almost Working
 
-Okay, so now I've figured out the issue and patched the adapter. The API is outputting the correct formatting now so everything should just work as expected. Wrong. You didn't think Ember would be that kind, did you? Here is the below pseudo code that I expected to work after these changes.
+Okay, so now I've figured out the issue and patched the adapter. The API is outputting the correct formatting now so everything should just work as expected. Wrong. You didn't think Ember would be that kind, did you? Here is the below pseudo code that I expected to work after these changes:
 
 {% highlight html %}
 {% raw %}
@@ -84,7 +84,7 @@ The actual code is a lot more complex, but this demonstrates that I was essentia
 
 ### Digging Deeper
 
-I started inspecting the Ajax response objects in the chrome console and the output was as I expected. The ```DS.InvalidError``` object that I was returning was in the following format.
+I started inspecting the Ajax response objects in the chrome console and the output was as I expected. The ```DS.InvalidError``` object that I was returning was in the following format:
 
 {% highlight json %}
 {
