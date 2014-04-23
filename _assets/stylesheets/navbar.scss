@@ -21,15 +21,21 @@
   }
   & .navbar-brand a {
     display: block;
-    padding: 14px 15px;
+    padding: $navbar-padding-vertical $navbar-padding-horizontal;
     color: inherit;
     text-decoration: none;
   }
   & .container-fluid {
-    padding-right: 5px;
+    padding-right: 1px;
+  }
+  & .form-group, & .btn, & a {
+    display: block;
+    float: left;
+    margin-right: 2px;
   }
   & .form-group {
     position: relative;
+    margin-right: 3px;
   }
   & .fa-search {
     position: absolute;
