@@ -1,7 +1,6 @@
 //= require jquery/jquery.js
 //= require bootstrap.js
 //= require_self
-//= require addthis
 
 // Disqus
 var disqus_shortname = 'marcqualie';
