@@ -66,19 +66,11 @@
   </div>
 </div>
 
-{% raw %}
-<!-- Search Template -->
-<script id="search-results-template" type="text/mustache">
-{{#entries}}
-  <article>
-    <h3><a href="{{url}}">{{title}}</a></h3>
-    {{#date}}<small><time datetime="{{pubdate}}" pubdate>{{displaydate}}</time></small>{{/date}}
-  </article>
-{{/entries}}
-</script>
-{% endraw %}
-
 <!-- Scripts -->
+<script>
+  var GoStaticApiHost = '{{ site.gostatic.api_host }}';
+  var GoStaticAccessToken = '{{ site.gostatic.api_host }}';
+</script>
 <script src="{{ site.cdn_host }}{% asset_path app.js %}"></script>
 {% if page.name == 'search' %}
 <script src="{{ site.cdn_host }}{% asset_path search.js %}"></script>

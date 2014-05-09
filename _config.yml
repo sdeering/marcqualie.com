@@ -40,3 +40,8 @@ analytics:
   google:
     id: UA-4472999-7
     domain: marcqualie.com
+
+# GoStatic
+gostatic:
+  api_host: https://api.gostatic.io
+  access_token: a46c959dce58265eb2297b428c4dd5e288786a64

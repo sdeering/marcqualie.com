@@ -60,3 +60,33 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+#search-form-full {
+  & .fa {
+    @include transition(opacity .4s);
+  }
+  & input {
+    @include transition(color .4s, background .4s);
+  }
+  & .fa-search {
+    opacity: 1;
+  }
+  & .fa-spinner {
+    opacity: 0;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+  }
+  &.loading {
+    & .fa-search {
+      opacity: 0;
+    }
+    & .fa-spinner {
+      opacity: 1;
+    }
+    & input {
+      color: #ccc;
+      background: #fcfcfc;
+    }
+  }
+}
